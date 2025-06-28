@@ -33,40 +33,137 @@ app.get('/health', (req, res) => {
   });
 });
 
-// API Routes for mobile app
+// Sample music data for demonstration
+const sampleArtists = [
+  {
+    id: 1,
+    name: 'Taylor Swift',
+    emoji: '🦋',
+    genre: 'Pop/Country',
+    activeYears: '2006-Present',
+    discography: [
+      { id: 1, album: 'Taylor Swift', year: '2006', genre: 'Country', popularity: 75 },
+      { id: 2, album: 'Fearless', year: '2008', genre: 'Country', popularity: 92 },
+      { id: 3, album: 'Speak Now', year: '2010', genre: 'Country Pop', popularity: 85 },
+      { id: 4, album: 'Red', year: '2012', genre: 'Pop', popularity: 88 },
+      { id: 5, album: '1989', year: '2014', genre: 'Pop', popularity: 94 },
+      { id: 6, album: 'Reputation', year: '2017', genre: 'Pop', popularity: 82 },
+      { id: 7, album: 'Lover', year: '2019', genre: 'Pop', popularity: 89 },
+      { id: 8, album: 'Folklore', year: '2020', genre: 'Indie Folk', popularity: 96 },
+      { id: 9, album: 'Evermore', year: '2020', genre: 'Indie Folk', popularity: 90 },
+      { id: 10, album: 'Midnights', year: '2022', genre: 'Pop', popularity: 98 }
+    ]
+  },
+  {
+    id: 2,
+    name: 'The Weeknd',
+    emoji: '🌙', 
+    genre: 'R&B/Pop',
+    activeYears: '2010-Present',
+    discography: [
+      { id: 1, album: 'House of Balloons', year: '2011', genre: 'Alternative R&B', popularity: 85 },
+      { id: 2, album: 'Thursday', year: '2011', genre: 'Alternative R&B', popularity: 82 },
+      { id: 3, album: 'Echoes of Silence', year: '2011', genre: 'Alternative R&B', popularity: 80 },
+      { id: 4, album: 'Trilogy', year: '2012', genre: 'Alternative R&B', popularity: 88 },
+      { id: 5, album: 'Kiss Land', year: '2013', genre: 'Alternative R&B', popularity: 76 },
+      { id: 6, album: 'Beauty Behind the Madness', year: '2015', genre: 'R&B Pop', popularity: 94 },
+      { id: 7, album: 'Starboy', year: '2016', genre: 'Pop R&B', popularity: 91 },
+      { id: 8, album: 'After Hours', year: '2020', genre: 'Synth-pop', popularity: 96 },
+      { id: 9, album: 'Dawn FM', year: '2022', genre: 'Synth-pop', popularity: 89 }
+    ]
+  },
+  {
+    id: 3,
+    name: 'Billie Eilish',
+    emoji: '💚',
+    genre: 'Alternative Pop', 
+    activeYears: '2016-Present',
+    discography: [
+      { id: 1, album: 'dont smile at me (EP)', year: '2017', genre: 'Alternative Pop', popularity: 78 },
+      { id: 2, album: 'When We All Fall Asleep, Where Do We Go?', year: '2019', genre: 'Alternative Pop', popularity: 95 },
+      { id: 3, album: 'Happier Than Ever', year: '2021', genre: 'Alternative Pop', popularity: 92 }
+    ]
+  }
+];
+
+// Music Besties API endpoints
+app.get('/api/artists', (req, res) => {
+  res.json(sampleArtists);
+});
+
+app.get('/api/artists/:id', (req, res) => {
+  const artistId = parseInt(req.params.id);
+  const artist = sampleArtists.find(a => a.id === artistId);
+  
+  if (artist) {
+    res.json(artist);
+  } else {
+    res.status(404).json({ error: 'Artist not found' });
+  }
+});
+
+app.get('/api/charts/:artistId', (req, res) => {
+  const artistId = parseInt(req.params.artistId);
+  const artist = sampleArtists.find(a => a.id === artistId);
+  
+  if (artist) {
+    // Generate chart data based on discography
+    const chartData = {
+      timeline: artist.discography.map(album => ({
+        year: album.year,
+        album: album.album,
+        value: album.popularity
+      })),
+      popularity: artist.discography.map(album => ({
+        album: album.album,
+        popularity: album.popularity
+      })),
+      genres: artist.discography.reduce((acc, album) => {
+        acc[album.genre] = (acc[album.genre] || 0) + 1;
+        return acc;
+      }, {})
+    };
+    
+    res.json(chartData);
+  } else {
+    res.status(404).json({ error: 'Artist not found' });
+  }
+});
+
+// Update the features endpoint to return music-focused features
 app.get('/api/features', (req, res) => {
-  const features = [
+  const musicFeatures = [
     {
       id: 1,
-      icon: '📱',
-      title: 'Mobile First',
-      description: 'Optimized for touch interactions',
-      details: 'Built specifically for mobile devices with touch-friendly UI components'
+      icon: '🎤',
+      title: 'Artist Discovery',
+      description: 'Explore discographies of popular artists',
+      details: `${sampleArtists.length} artists available`
     },
     {
       id: 2,
-      icon: '⚡',
-      title: 'Fast Loading',
-      description: 'Built with Vite for speed',
-      details: 'Lightning-fast development and optimized production builds'
+      icon: '📊',
+      title: 'Interactive Charts',
+      description: 'Visualize music data in creative ways',
+      details: 'Timeline, popularity, and genre charts'
     },
     {
       id: 3,
-      icon: '🎨',
-      title: 'Modern UI',
-      description: 'Clean and responsive design',
-      details: 'Contemporary design patterns with smooth animations'
+      icon: '🎵',
+      title: 'Album Analytics',
+      description: 'Deep dive into album popularity and trends',
+      details: 'Comprehensive discography analysis'
     },
     {
       id: 4,
-      icon: '🔒',
-      title: 'Secure Backend',
-      description: 'API hosted on Render',
-      details: 'Scalable and secure backend infrastructure'
+      icon: '❤️',
+      title: 'Music Besties',
+      description: 'Connect with fellow music lovers',
+      details: 'Share and discover new music together'
     }
   ];
   
-  res.json(features);
+  res.json(musicFeatures);
 });
 
 // User actions endpoint

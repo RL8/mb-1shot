@@ -12,6 +12,8 @@
   --header-height: 60px;
   --safe-area-top: env(safe-area-inset-top);
   --safe-area-bottom: env(safe-area-inset-bottom);
+  --music-accent: #ff6b6b;
+  --music-secondary: #4ecdc4;
 }
 
 /* Mobile app container */
@@ -117,6 +119,146 @@
   margin-bottom: 24px;
 }
 
+/* Artist Selector */
+.artist-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.artist-btn {
+  background: var(--background-color);
+  border: 2px solid transparent;
+  border-radius: 12px;
+  padding: 16px 20px;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: left;
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.artist-btn:active {
+  transform: scale(0.98);
+}
+
+.artist-btn.active {
+  background: linear-gradient(135deg, var(--primary-color), var(--music-accent));
+  color: white;
+  border-color: var(--primary-color);
+  font-weight: 600;
+}
+
+/* Artist Info */
+.artist-info {
+  margin-top: 8px;
+}
+
+.artist-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.artist-emoji {
+  font-size: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  background: var(--background-color);
+  border-radius: 50%;
+}
+
+.artist-details h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 4px 0;
+}
+
+.artist-details p {
+  color: var(--text-secondary);
+  font-size: 14px;
+  margin: 0;
+}
+
+/* Album List */
+.album-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.album-item {
+  background: var(--background-color);
+  border-radius: 10px;
+  padding: 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: 1px solid transparent;
+}
+
+.album-item:active {
+  transform: scale(0.98);
+  background: var(--primary-color);
+  color: white;
+}
+
+.album-item:active .album-year,
+.album-item:active .album-genre,
+.album-item:active .album-popularity {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.album-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.album-info strong {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.album-year {
+  font-size: 14px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.album-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+}
+
+.album-genre {
+  color: var(--text-secondary);
+  background: rgba(0, 122, 255, 0.1);
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+.album-popularity {
+  color: var(--music-accent);
+  font-weight: 600;
+}
+
 /* Status info styles */
 .status-info {
   margin-bottom: 20px;
@@ -198,48 +340,55 @@
 .feature-item {
   display: flex;
   align-items: center;
+  gap: 16px;
   padding: 16px;
   background-color: var(--background-color);
   border-radius: 12px;
   cursor: pointer;
   transition: all 0.2s;
-  min-height: 70px;
+  border: 1px solid transparent;
 }
 
 .feature-item:active {
+  background-color: var(--primary-color);
+  color: white;
   transform: scale(0.98);
-  background-color: var(--border-color);
 }
 
 .feature-icon {
-  font-size: 32px;
-  margin-right: 16px;
+  font-size: 24px;
   width: 48px;
-  text-align: center;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--card-background);
+  border-radius: 50%;
 }
 
 .feature-text h3 {
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 600;
   color: var(--text-primary);
-  margin-bottom: 4px;
+  margin: 0 0 4px 0;
 }
 
 .feature-text p {
-  font-size: 14px;
   color: var(--text-secondary);
+  font-size: 14px;
   margin: 0;
+  line-height: 1.4;
 }
 
 .feature-details {
-  font-size: 12px;
   color: var(--text-secondary);
-  opacity: 0.8;
+  font-size: 12px;
+  font-style: italic;
   margin-top: 4px;
   display: block;
 }
 
-/* Loading states */
+/* Loading features */
 .loading-features {
   display: flex;
   flex-direction: column;
@@ -249,19 +398,19 @@
 .loading-item {
   display: flex;
   align-items: center;
+  gap: 16px;
   padding: 16px;
   background-color: var(--background-color);
   border-radius: 12px;
-  min-height: 70px;
 }
 
 .loading-icon {
   width: 48px;
-  height: 32px;
-  background-color: var(--border-color);
-  border-radius: 8px;
-  margin-right: 16px;
-  animation: skeleton 1.5s ease-in-out infinite alternate;
+  height: 48px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: skeleton 1.5s infinite;
+  border-radius: 50%;
 }
 
 .loading-text {
@@ -270,63 +419,66 @@
 
 .loading-line {
   height: 16px;
-  background-color: var(--border-color);
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: skeleton 1.5s infinite;
   border-radius: 4px;
   margin-bottom: 8px;
-  animation: skeleton 1.5s ease-in-out infinite alternate;
 }
 
 .loading-line.short {
   width: 60%;
-  margin-bottom: 0;
 }
 
 @keyframes skeleton {
-  0% { opacity: 1; }
-  100% { opacity: 0.5; }
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
 }
 
 /* Mobile navigation */
 .mobile-nav {
   position: fixed;
   top: 0;
-  right: -280px;
+  left: -100%;
   width: 280px;
   height: 100vh;
   background-color: var(--card-background);
-  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
-  transition: right 0.3s ease;
   z-index: 200;
-  padding-top: calc(var(--header-height) + var(--safe-area-top) + 20px);
+  transition: left 0.3s ease;
+  padding-top: calc(var(--header-height) + var(--safe-area-top));
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .mobile-nav.active {
-  right: 0;
+  left: 0;
 }
 
 .mobile-nav ul {
   list-style: none;
-  padding: 0;
+  padding: 20px 0;
   margin: 0;
 }
 
 .mobile-nav li {
-  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 8px;
 }
 
 .mobile-nav a {
   display: flex;
   align-items: center;
-  padding: 20px 24px;
+  gap: 12px;
+  padding: 16px 20px;
   color: var(--text-primary);
   text-decoration: none;
-  font-size: 18px;
-  min-height: 60px;
+  font-size: 16px;
+  font-weight: 500;
   transition: background-color 0.2s;
+  min-height: 44px;
 }
 
 .mobile-nav a:active {
-  background-color: var(--background-color);
+  background-color: var(--primary-color);
+  color: white;
 }
 
 /* Toast notification */
@@ -339,12 +491,12 @@
   color: white;
   padding: 16px 20px;
   border-radius: 12px;
-  font-size: 16px;
+  font-size: 14px;
+  font-weight: 500;
+  z-index: 300;
   transform: translateY(100px);
   opacity: 0;
   transition: all 0.3s ease;
-  z-index: 300;
-  text-align: center;
 }
 
 .toast.show {
@@ -352,28 +504,28 @@
   opacity: 1;
 }
 
-/* Backdrop for menu */
+/* Overlay for mobile nav */
 .mobile-nav.active::before {
   content: '';
   position: fixed;
   top: 0;
-  left: -280px;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
+  left: 280px;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
   z-index: -1;
 }
 
-/* Touch optimizations */
+/* Remove tap highlight and improve touch targets */
 * {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
 }
 
+/* Ensure minimum touch target sizes */
 input, textarea {
-  -webkit-user-select: text;
-  user-select: text;
+  font-size: 16px; /* Prevents zoom on iOS */
+  min-height: 44px;
 }
 
 /* Smooth scrolling */
@@ -386,7 +538,7 @@ html {
   display: none;
 }
 
-/* Ensure proper spacing on various mobile devices */
+/* Safe area adjustments for devices with notches */
 @supports (padding: max(0px)) {
   .mobile-header {
     padding-left: max(20px, env(safe-area-inset-left));

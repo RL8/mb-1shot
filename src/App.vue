@@ -3,7 +3,7 @@
     <!-- Mobile header -->
     <header class="mobile-header">
       <div class="header-content">
-        <h1>Mobile Vue App</h1>
+        <h1>🎵 Music Besties</h1>
         <div class="connection-status" :class="{ connected: backendConnected, loading: loading }">
           <span v-if="loading">⏳</span>
           <span v-else-if="backendConnected">🟢</span>
@@ -15,49 +15,74 @@
 
     <!-- Main content area -->
     <main class="mobile-main">
+      <!-- Artist Selection -->
       <div class="content-card">
-        <h2>Welcome to Your Mobile App</h2>
-        <p>This app is designed exclusively for mobile devices with touch-optimized interactions.</p>
+        <h2>Choose Your Artist</h2>
+        <p>Explore discographies of your favorite artists in beautiful, interactive charts.</p>
         
-        <div class="status-info">
-          <p v-if="loading" class="status-text loading">
-            🔄 Loading app data...
-          </p>
-          <p v-else-if="backendConnected" class="status-text connected">
-            ✅ Connected to backend API
-          </p>
-          <p v-else class="status-text offline">
-            ⚠️ Running in offline mode
-          </p>
-        </div>
-        
-        <div class="action-buttons">
-          <button class="primary-btn" @click="handleAction('primary')">
-            Primary Action
-          </button>
-          <button class="secondary-btn" @click="handleAction('secondary')">
-            Secondary Action
+        <div class="artist-selector">
+          <button 
+            v-for="artist in artists" 
+            :key="artist.id"
+            @click="selectArtist(artist)"
+            :class="{ active: selectedArtist?.id === artist.id }"
+            class="artist-btn"
+          >
+            {{ artist.emoji }} {{ artist.name }}
           </button>
         </div>
+      </div>
 
-        <div class="feature-list">
-          <div v-if="loading" class="loading-features">
-            <div class="loading-item" v-for="n in 3" :key="n">
-              <div class="loading-icon"></div>
-              <div class="loading-text">
-                <div class="loading-line"></div>
-                <div class="loading-line short"></div>
+      <!-- Artist Discography Chart -->
+      <div v-if="selectedArtist && selectedArtist.discography.length > 0">
+        <MusicChart 
+          :title="`${selectedArtist.name} Discography`"
+          :data="selectedArtist.discography"
+        />
+      </div>
+
+      <!-- Artist Info Card -->
+      <div v-if="selectedArtist" class="content-card">
+        <div class="artist-info">
+          <div class="artist-header">
+            <span class="artist-emoji">{{ selectedArtist.emoji }}</span>
+            <div class="artist-details">
+              <h3>{{ selectedArtist.name }}</h3>
+              <p>{{ selectedArtist.discography.length }} Albums • {{ selectedArtist.genre }} • {{ selectedArtist.activeYears }}</p>
+            </div>
+          </div>
+          <div class="album-list">
+            <div 
+              v-for="album in selectedArtist.discography" 
+              :key="album.id"
+              @click="selectAlbum(album)"
+              class="album-item"
+            >
+              <div class="album-info">
+                <strong>{{ album.album }}</strong>
+                <span class="album-year">{{ album.year }}</span>
+              </div>
+              <div class="album-meta">
+                <span class="album-genre">{{ album.genre }}</span>
+                <span class="album-popularity">⭐ {{ album.popularity }}/100</span>
               </div>
             </div>
           </div>
-          <div v-else class="feature-item" v-for="feature in features" :key="feature.id" @click="selectFeature(feature)">
-            <div class="feature-icon">{{ feature.icon }}</div>
-            <div class="feature-text">
-              <h3>{{ feature.title }}</h3>
-              <p>{{ feature.description }}</p>
-              <small v-if="feature.details" class="feature-details">{{ feature.details }}</small>
-            </div>
-          </div>
+        </div>
+      </div>
+
+      <!-- Status Info -->
+      <div class="content-card">
+        <div class="status-info">
+          <p v-if="loading" class="status-text loading">
+            🔄 Loading artist data...
+          </p>
+          <p v-else-if="backendConnected" class="status-text connected">
+            ✅ Connected to music database
+          </p>
+          <p v-else class="status-text offline">
+            ⚠️ Using offline artist data
+          </p>
         </div>
       </div>
     </main>
@@ -65,10 +90,10 @@
     <!-- Mobile navigation menu -->
     <nav class="mobile-nav" :class="{ active: menuOpen }">
       <ul>
-        <li><a href="#" @click="navigate('home')">🏠 Home</a></li>
-        <li><a href="#" @click="navigate('profile')">👤 Profile</a></li>
+        <li><a href="#" @click="navigate('artists')">🎤 Artists</a></li>
+        <li><a href="#" @click="navigate('favorites')">❤️ Favorites</a></li>
+        <li><a href="#" @click="navigate('charts')">📊 Charts</a></li>
         <li><a href="#" @click="navigate('settings')">⚙️ Settings</a></li>
-        <li><a href="#" @click="navigate('help')">❓ Help</a></li>
       </ul>
     </nav>
 
@@ -82,19 +107,74 @@
 <script>
 import { ref, reactive, onMounted } from 'vue'
 import apiService from './services/api.js'
+import MusicChart from './components/MusicChart.vue'
 
 export default {
-  name: 'App',
+  name: 'MusicBesties',
+  components: {
+    MusicChart
+  },
   setup() {
     const menuOpen = ref(false)
     const loading = ref(true)
     const backendConnected = ref(false)
+    const selectedArtist = ref(null)
     const toast = reactive({
       show: false,
       message: ''
     })
 
-    const features = ref([])
+    const artists = ref([
+      {
+        id: 1,
+        name: 'Taylor Swift',
+        emoji: '🦋',
+        genre: 'Pop/Country',
+        activeYears: '2006-Present',
+        discography: [
+          { id: 1, album: 'Taylor Swift', year: '2006', genre: 'Country', popularity: 75 },
+          { id: 2, album: 'Fearless', year: '2008', genre: 'Country', popularity: 92 },
+          { id: 3, album: 'Speak Now', year: '2010', genre: 'Country Pop', popularity: 85 },
+          { id: 4, album: 'Red', year: '2012', genre: 'Pop', popularity: 88 },
+          { id: 5, album: '1989', year: '2014', genre: 'Pop', popularity: 94 },
+          { id: 6, album: 'Reputation', year: '2017', genre: 'Pop', popularity: 82 },
+          { id: 7, album: 'Lover', year: '2019', genre: 'Pop', popularity: 89 },
+          { id: 8, album: 'Folklore', year: '2020', genre: 'Indie Folk', popularity: 96 },
+          { id: 9, album: 'Evermore', year: '2020', genre: 'Indie Folk', popularity: 90 },
+          { id: 10, album: 'Midnights', year: '2022', genre: 'Pop', popularity: 98 }
+        ]
+      },
+      {
+        id: 2,
+        name: 'The Weeknd',
+        emoji: '🌙',
+        genre: 'R&B/Pop',
+        activeYears: '2010-Present',
+        discography: [
+          { id: 1, album: 'House of Balloons', year: '2011', genre: 'Alternative R&B', popularity: 85 },
+          { id: 2, album: 'Thursday', year: '2011', genre: 'Alternative R&B', popularity: 82 },
+          { id: 3, album: 'Echoes of Silence', year: '2011', genre: 'Alternative R&B', popularity: 80 },
+          { id: 4, album: 'Trilogy', year: '2012', genre: 'Alternative R&B', popularity: 88 },
+          { id: 5, album: 'Kiss Land', year: '2013', genre: 'Alternative R&B', popularity: 76 },
+          { id: 6, album: 'Beauty Behind the Madness', year: '2015', genre: 'R&B Pop', popularity: 94 },
+          { id: 7, album: 'Starboy', year: '2016', genre: 'Pop R&B', popularity: 91 },
+          { id: 8, album: 'After Hours', year: '2020', genre: 'Synth-pop', popularity: 96 },
+          { id: 9, album: 'Dawn FM', year: '2022', genre: 'Synth-pop', popularity: 89 }
+        ]
+      },
+      {
+        id: 3,
+        name: 'Billie Eilish',
+        emoji: '💚',
+        genre: 'Alternative Pop',
+        activeYears: '2016-Present',
+        discography: [
+          { id: 1, album: 'dont smile at me (EP)', year: '2017', genre: 'Alternative Pop', popularity: 78 },
+          { id: 2, album: 'When We All Fall Asleep, Where Do We Go?', year: '2019', genre: 'Alternative Pop', popularity: 95 },
+          { id: 3, album: 'Happier Than Ever', year: '2021', genre: 'Alternative Pop', popularity: 92 }
+        ]
+      }
+    ])
 
     // Initialize app and load data from backend
     onMounted(async () => {
@@ -107,49 +187,66 @@ export default {
         const health = await apiService.checkHealth()
         backendConnected.value = health.status === 'OK'
         
-        // Load features from backend
-        const featuresData = await apiService.getFeatures()
-        features.value = featuresData
+        // Try to load artists from backend
+        try {
+          const backendArtists = await apiService.getFeatures()
+          if (backendArtists && backendArtists.length > 0) {
+            // Backend has artist data, could integrate here
+            console.log('Backend features available:', backendArtists)
+          }
+        } catch (error) {
+          console.log('Using local artist data')
+        }
         
         // Track app startup
-        await apiService.trackEvent('app_start', {
+        await apiService.trackEvent('music_app_start', {
           timestamp: new Date().toISOString(),
-          userAgent: navigator.userAgent
+          totalArtists: artists.value.length
         })
         
-        showToast('🚀 Connected to backend!')
+        showToast('🎵 Welcome to Music Besties!')
       } catch (error) {
         console.error('Failed to connect to backend:', error)
         backendConnected.value = false
-        
-        // Fallback to local data
-        features.value = [
-          {
-            id: 1,
-            icon: '📱',
-            title: 'Mobile First',
-            description: 'Optimized for touch interactions',
-            details: 'Built specifically for mobile devices'
-          },
-          {
-            id: 2,
-            icon: '⚡',
-            title: 'Fast Loading',
-            description: 'Built with Vite for speed',
-            details: 'Lightning-fast development builds'
-          },
-          {
-            id: 3,
-            icon: '🎨',
-            title: 'Modern UI',
-            description: 'Clean and responsive design',
-            details: 'Contemporary design patterns'
-          }
-        ]
-        
-        showToast('⚠️ Using offline mode')
+        showToast('🎵 Exploring artists offline')
       } finally {
         loading.value = false
+      }
+    }
+
+    const selectArtist = async (artist) => {
+      selectedArtist.value = artist
+      showToast(`🎤 Exploring ${artist.name}'s discography`)
+      
+      // Track artist selection
+      if (backendConnected.value) {
+        try {
+          await apiService.trackEvent('artist_selected', {
+            artistId: artist.id,
+            artistName: artist.name,
+            albumCount: artist.discography.length
+          })
+        } catch (error) {
+          console.error('Failed to track artist selection:', error)
+        }
+      }
+    }
+
+    const selectAlbum = async (album) => {
+      showToast(`🎵 Selected: ${album.album} (${album.year})`)
+      
+      // Track album selection
+      if (backendConnected.value) {
+        try {
+          await apiService.trackEvent('album_selected', {
+            albumId: album.id,
+            albumName: album.album,
+            year: album.year,
+            artistName: selectedArtist.value?.name
+          })
+        } catch (error) {
+          console.error('Failed to track album selection:', error)
+        }
       }
     }
 
@@ -162,49 +259,10 @@ export default {
       }
     }
 
-    const handleAction = async (type) => {
-      showToast(`Processing ${type} action...`)
-      
-      try {
-        if (backendConnected.value) {
-          const response = await apiService.sendAction(type, {
-            timestamp: new Date().toISOString(),
-            source: 'mobile_app'
-          })
-          
-          if (response.success) {
-            showToast(`✅ ${response.message}`)
-          }
-        } else {
-          showToast(`${type} action triggered (offline)`)
-        }
-      } catch (error) {
-        console.error('Action failed:', error)
-        showToast(`❌ ${type} action failed`)
-      }
-    }
-
-    const selectFeature = async (feature) => {
-      showToast(`Selected: ${feature.title}`)
-      
-      // Track feature selection
-      if (backendConnected.value) {
-        try {
-          await apiService.trackEvent('feature_selected', {
-            featureId: feature.id,
-            featureTitle: feature.title
-          })
-        } catch (error) {
-          console.error('Failed to track feature selection:', error)
-        }
-      }
-    }
-
     const navigate = (section) => {
       menuOpen.value = false
-      showToast(`Navigating to ${section}`)
+      showToast(`📱 Navigating to ${section}`)
       
-      // Track navigation
       if (backendConnected.value) {
         apiService.trackEvent('navigation', { section })
       }
@@ -222,12 +280,14 @@ export default {
       menuOpen,
       loading,
       backendConnected,
+      selectedArtist,
+      artists,
       toast,
-      features,
       toggleMenu,
-      handleAction,
-      selectFeature,
-      navigate
+      selectArtist,
+      selectAlbum,
+      navigate,
+      showToast
     }
   }
 }
