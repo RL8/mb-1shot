@@ -41,10 +41,31 @@
   -webkit-backdrop-filter: blur(20px);
 }
 
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
 .mobile-header h1 {
   font-size: 20px;
   font-weight: 600;
   color: var(--text-primary);
+}
+
+.connection-status {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+
+.connection-status.loading {
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
 }
 
 .menu-btn {
@@ -94,6 +115,33 @@
   font-size: 16px;
   line-height: 1.5;
   margin-bottom: 24px;
+}
+
+/* Status info styles */
+.status-info {
+  margin-bottom: 20px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  background-color: var(--background-color);
+}
+
+.status-text {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.status-text.loading {
+  color: var(--primary-color);
+  animation: pulse 1.5s infinite;
+}
+
+.status-text.connected {
+  color: var(--secondary-color);
+}
+
+.status-text.offline {
+  color: #ff9500;
 }
 
 /* Action buttons */
@@ -181,6 +229,61 @@
   font-size: 14px;
   color: var(--text-secondary);
   margin: 0;
+}
+
+.feature-details {
+  font-size: 12px;
+  color: var(--text-secondary);
+  opacity: 0.8;
+  margin-top: 4px;
+  display: block;
+}
+
+/* Loading states */
+.loading-features {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.loading-item {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  background-color: var(--background-color);
+  border-radius: 12px;
+  min-height: 70px;
+}
+
+.loading-icon {
+  width: 48px;
+  height: 32px;
+  background-color: var(--border-color);
+  border-radius: 8px;
+  margin-right: 16px;
+  animation: skeleton 1.5s ease-in-out infinite alternate;
+}
+
+.loading-text {
+  flex: 1;
+}
+
+.loading-line {
+  height: 16px;
+  background-color: var(--border-color);
+  border-radius: 4px;
+  margin-bottom: 8px;
+  animation: skeleton 1.5s ease-in-out infinite alternate;
+}
+
+.loading-line.short {
+  width: 60%;
+  margin-bottom: 0;
+}
+
+@keyframes skeleton {
+  0% { opacity: 1; }
+  100% { opacity: 0.5; }
 }
 
 /* Mobile navigation */

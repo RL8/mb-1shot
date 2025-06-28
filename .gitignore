@@ -15,6 +15,11 @@ build/
 .env.test.local
 .env.production.local
 
+# Backend environment
+backend/.env
+backend/.env.local
+backend/.env.production
+
 # Editor directories and files
 .vscode/
 .idea/
