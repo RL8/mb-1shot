@@ -15,12 +15,26 @@
       </div>
     </div>
     <div ref="chartContainer" class="chart-area"></div>
+    
+    <!-- Mobile fallback card layout for very small screens -->
+    <div v-if="showMobileFallback" class="mobile-data-cards">
+      <div v-for="(item, index) in props.data" :key="index" class="data-card">
+        <div class="card-header">
+          <span class="album-name">{{ item.album }}</span>
+          <span class="year">{{ item.year }}</span>
+        </div>
+        <div class="card-content">
+          <span class="genre">{{ item.genre }}</span>
+          <span class="popularity">⭐ {{ item.popularity || 'N/A' }}/100</span>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script setup>
 import * as echarts from 'echarts'
-import { ref, onMounted, onUnmounted, watch } from 'vue'
+import { ref, onMounted, onUnmounted, watch, nextTick } from 'vue'
 
 const props = defineProps({
   title: { type: String, default: 'Artist Timeline' },
@@ -29,6 +43,7 @@ const props = defineProps({
 
 const chartContainer = ref(null)
 const currentType = ref('timeline')
+const showMobileFallback = ref(false)
 let myChart = null
 
 const chartTypes = [
@@ -37,16 +52,102 @@ const chartTypes = [
   { value: 'genre', icon: '🎵' }
 ]
 
-const initChart = () => {
-  if (chartContainer.value) {
-    myChart = echarts.init(chartContainer.value)
-    updateChart()
-    window.addEventListener('resize', resizeChart)
+// Mobile detection utilities
+const isMobile = () => window.innerWidth < 768
+const isTinyScreen = () => window.innerWidth < 480
+const isTablet = () => window.innerWidth >= 768 && window.innerWidth < 1024
+
+// Responsive configuration getters
+const getMobileFontSize = (baseSize) => {
+  if (isTinyScreen()) return Math.max(16, baseSize)
+  if (isMobile()) return Math.max(16, baseSize)
+  if (isTablet()) return Math.max(14, baseSize)
+  return baseSize
+}
+
+const getResponsiveSymbolSize = () => {
+  if (isMobile()) return 12
+  return 10
+}
+
+const getResponsiveChartHeight = () => {
+  if (isTinyScreen()) return 280
+  if (isMobile()) return 320
+  if (isTablet()) return 350
+  return 400
+}
+
+const getResponsiveGrid = () => {
+  if (isMobile()) {
+    return {
+      left: '12%',
+      right: '12%',
+      top: '15%',
+      bottom: '25%'
+    }
+  }
+  return {
+    left: '10%',
+    right: '10%',
+    top: '10%',
+    bottom: '20%'
   }
 }
 
-const updateChart = () => {
+// Debounced resize handler
+let resizeTimer = null
+const debouncedResize = () => {
+  clearTimeout(resizeTimer)
+  resizeTimer = setTimeout(() => {
+    handleResize()
+  }, 300)
+}
+
+const handleResize = () => {
+  if (!myChart) return
+  
+  // Check if we should show mobile fallback
+  showMobileFallback.value = isTinyScreen() && currentType.value === 'genre'
+  
+  if (showMobileFallback.value) {
+    myChart.dispose()
+    myChart = null
+    return
+  }
+  
+  // Reinitialize with proper renderer for current screen size
+  const currentOption = myChart.getOption()
+  myChart.dispose()
+  initChart()
+  
+  // Apply responsive configuration
+  updateChart()
+}
+
+const initChart = () => {
+  if (!chartContainer.value || showMobileFallback.value) return
+  
+  // Use SVG renderer for mobile to reduce memory usage
+  const renderer = isMobile() ? 'svg' : 'canvas'
+  
+  myChart = echarts.init(chartContainer.value, null, {
+    renderer: renderer,
+    useDirtyRect: !isMobile() // Disable dirty rect on mobile for simplicity
+  })
+  
+  updateChart()
+  window.addEventListener('resize', debouncedResize)
+}
+
+const updateChart = async () => {
   if (!myChart || !props.data.length) return
+
+  await nextTick()
+  
+  // Update chart area height responsively
+  if (chartContainer.value) {
+    chartContainer.value.style.height = `${getResponsiveChartHeight()}px`
+  }
 
   let option = {}
   
@@ -62,14 +163,15 @@ const updateChart = () => {
       break
   }
   
-  myChart.setOption(option)
+  myChart.setOption(option, true)
+  myChart.resize()
 }
 
 const getTimelineOption = () => ({
   backgroundColor: 'transparent',
   textStyle: { 
     color: '#1d1d1f',
-    fontSize: 14,
+    fontSize: getMobileFontSize(14),
     fontWeight: 500
   },
   tooltip: {
@@ -78,27 +180,24 @@ const getTimelineOption = () => ({
     borderColor: '#d1d1d6',
     textStyle: { 
       color: '#1d1d1f',
-      fontSize: 16
+      fontSize: getMobileFontSize(16)
     },
     formatter: function(params) {
       const data = params[0]
       const albumData = props.data[data.dataIndex]
+      const fontSize = getMobileFontSize(16)
+      const subFontSize = getMobileFontSize(14)
       return `
-        <div style="padding: 8px;">
-          <strong style="font-size: 16px;">${albumData.album}</strong><br/>
-          <span style="color: #666; font-size: 14px;">Year: ${albumData.year}</span><br/>
-          <span style="color: #666; font-size: 14px;">Genre: ${albumData.genre}</span><br/>
-          <span style="color: #007AFF; font-size: 14px;">Popularity: ${albumData.popularity}/100</span>
+        <div style="padding: 12px; max-width: 280px;">
+          <strong style="font-size: ${fontSize}px; line-height: 1.4;">${albumData.album}</strong><br/>
+          <span style="color: #666; font-size: ${subFontSize}px; line-height: 1.3;">Year: ${albumData.year}</span><br/>
+          <span style="color: #666; font-size: ${subFontSize}px; line-height: 1.3;">Genre: ${albumData.genre}</span><br/>
+          <span style="color: #007AFF; font-size: ${subFontSize}px; font-weight: 600; line-height: 1.3;">Popularity: ${albumData.popularity}/100</span>
         </div>
       `
     }
   },
-  grid: {
-    left: '15%',
-    right: '15%',
-    top: '15%',
-    bottom: '25%'
-  },
+  grid: getResponsiveGrid(),
   xAxis: {
     type: 'category',
     data: props.data.map(item => item.year),
@@ -107,15 +206,22 @@ const getTimelineOption = () => ({
     },
     axisLabel: { 
       color: '#86868b', 
-      fontSize: 16,
+      fontSize: getMobileFontSize(16),
       fontWeight: 500,
-      interval: 0,
-      rotate: 0,
-      margin: 12
+      interval: isMobile() ? 'auto' : 0, // Let ECharts optimize spacing on mobile
+      rotate: isMobile() ? 45 : 0, // Rotate labels on mobile to prevent overlap
+      margin: isMobile() ? 15 : 12,
+      formatter: function(value) {
+        // Smart truncation for mobile
+        if (isMobile() && value.toString().length > 4) {
+          return "'" + value.toString().slice(-2)
+        }
+        return value
+      }
     },
     axisTick: {
       show: true,
-      length: 6,
+      length: isMobile() ? 8 : 6,
       lineStyle: { color: '#d1d1d6' }
     }
   },
@@ -131,11 +237,18 @@ const getTimelineOption = () => ({
     })),
     lineStyle: { 
       color: '#007AFF', 
-      width: 4
+      width: isMobile() ? 3 : 4
     },
     symbol: 'circle',
-    symbolSize: 12,
+    symbolSize: getResponsiveSymbolSize(),
     smooth: true,
+    emphasis: {
+      scale: isMobile() ? 1.3 : 1.2, // Larger emphasis for touch
+      itemStyle: {
+        shadowBlur: 8,
+        shadowColor: 'rgba(0, 122, 255, 0.3)'
+      }
+    },
     areaStyle: {
       color: {
         type: 'linear',
@@ -153,7 +266,7 @@ const getPopularityOption = () => ({
   backgroundColor: 'transparent',
   textStyle: { 
     color: '#1d1d1f',
-    fontSize: 14,
+    fontSize: getMobileFontSize(14),
     fontWeight: 500
   },
   tooltip: {
@@ -162,39 +275,43 @@ const getPopularityOption = () => ({
     borderColor: '#d1d1d6',
     textStyle: { 
       color: '#1d1d1f',
-      fontSize: 16
+      fontSize: getMobileFontSize(16)
     },
     formatter: function(params) {
       const data = params[0]
       const albumData = props.data[data.dataIndex]
+      const fontSize = getMobileFontSize(16)
+      const subFontSize = getMobileFontSize(14)
       return `
-        <div style="padding: 8px;">
-          <strong style="font-size: 16px;">${albumData.album}</strong><br/>
-          <span style="color: #666; font-size: 14px;">${albumData.year} • ${albumData.genre}</span><br/>
-          <span style="color: #34C759; font-size: 16px; font-weight: 600;">⭐ ${albumData.popularity}/100</span>
+        <div style="padding: 12px; max-width: 280px;">
+          <strong style="font-size: ${fontSize}px; line-height: 1.4;">${albumData.album}</strong><br/>
+          <span style="color: #666; font-size: ${subFontSize}px; line-height: 1.3;">${albumData.year} • ${albumData.genre}</span><br/>
+          <span style="color: #34C759; font-size: ${fontSize}px; font-weight: 600; line-height: 1.3;">⭐ ${albumData.popularity}/100</span>
         </div>
       `
     }
   },
   grid: {
-    left: '5%',
-    right: '5%',
+    left: isMobile() ? '8%' : '5%',
+    right: isMobile() ? '8%' : '5%',
     top: '15%',
-    bottom: '35%'
+    bottom: isMobile() ? '40%' : '35%' // Extra space for rotated labels
   },
   xAxis: {
     type: 'category',
     data: props.data.map(item => {
-      // Truncate long album names for mobile
-      return item.album.length > 12 ? item.album.slice(0, 12) + '..' : item.album
+      // Smart truncation based on screen size
+      const maxLength = isTinyScreen() ? 8 : isMobile() ? 10 : 12
+      return item.album.length > maxLength ? 
+        item.album.slice(0, maxLength) + '..' : item.album
     }),
     axisLabel: { 
-      rotate: 45, 
+      rotate: isMobile() ? 45 : 35, 
       color: '#86868b', 
-      fontSize: 12,
+      fontSize: getMobileFontSize(14),
       fontWeight: 500,
       interval: 0,
-      margin: 8
+      margin: isMobile() ? 12 : 8
     },
     axisLine: { 
       lineStyle: { color: '#d1d1d6', width: 2 }
@@ -204,7 +321,7 @@ const getPopularityOption = () => ({
     type: 'value',
     axisLabel: { 
       color: '#86868b', 
-      fontSize: 14,
+      fontSize: getMobileFontSize(14),
       fontWeight: 500
     },
     splitLine: { 
@@ -228,79 +345,109 @@ const getPopularityOption = () => ({
         borderRadius: [4, 4, 0, 0]
       }
     })),
-    barWidth: '70%'
+    barWidth: isMobile() ? '80%' : '70%',
+    emphasis: {
+      itemStyle: {
+        shadowBlur: 8,
+        shadowColor: 'rgba(52, 199, 89, 0.3)'
+      }
+    }
   }]
 })
 
-const getGenreOption = () => ({
-  backgroundColor: 'transparent',
-  textStyle: { 
-    color: '#1d1d1f',
-    fontSize: 14,
-    fontWeight: 500
-  },
-  tooltip: {
-    trigger: 'item',
-    backgroundColor: '#ffffff',
-    borderColor: '#d1d1d6',
+const getGenreOption = () => {
+  // Show card layout for tiny screens
+  if (isTinyScreen()) {
+    showMobileFallback.value = true
+    return {}
+  }
+
+  return {
+    backgroundColor: 'transparent',
     textStyle: { 
       color: '#1d1d1f',
-      fontSize: 16
+      fontSize: getMobileFontSize(14),
+      fontWeight: 500
     },
-    formatter: function(params) {
-      return `
-        <div style="padding: 8px;">
-          <strong style="font-size: 16px;">${params.name}</strong><br/>
-          <span style="color: #666; font-size: 14px;">${params.value} albums</span><br/>
-          <span style="color: #007AFF; font-size: 14px;">${params.percent}% of discography</span>
-        </div>
-      `
-    }
-  },
-  legend: {
-    show: false  // Hide legend to save space on mobile
-  },
-  series: [{
-    type: 'pie',
-    radius: ['30%', '75%'],
-    center: ['50%', '50%'],
-    data: getGenreData(),
-    itemStyle: {
-      borderRadius: 8,
-      borderColor: '#fff',
-      borderWidth: 3
-    },
-    label: {
-      show: true,
-      position: 'outside',
-      color: '#1d1d1f',
-      fontSize: 14,
-      fontWeight: 600,
+    tooltip: {
+      trigger: 'item',
+      backgroundColor: '#ffffff',
+      borderColor: '#d1d1d6',
+      textStyle: { 
+        color: '#1d1d1f',
+        fontSize: getMobileFontSize(16)
+      },
       formatter: function(params) {
-        // Show abbreviated genre names for mobile
-        const shortName = params.name.length > 8 ? 
-          params.name.split(' ')[0] : params.name
-        return `${shortName}\n${params.value}`
+        const fontSize = getMobileFontSize(16)
+        const subFontSize = getMobileFontSize(14)
+        return `
+          <div style="padding: 12px; max-width: 200px;">
+            <strong style="font-size: ${fontSize}px; line-height: 1.4;">${params.name}</strong><br/>
+            <span style="color: #666; font-size: ${subFontSize}px; line-height: 1.3;">${params.value} albums</span><br/>
+            <span style="color: #007AFF; font-size: ${subFontSize}px; line-height: 1.3;">${params.percent}% of discography</span>
+          </div>
+        `
       }
     },
-    labelLine: {
-      show: true,
-      length: 15,
-      length2: 10,
-      lineStyle: {
-        color: '#d1d1d6',
-        width: 2
+    legend: {
+      show: !isMobile(), // Hide legend on mobile to save space
+      bottom: 10,
+      textStyle: {
+        fontSize: getMobileFontSize(12)
       }
     },
-    emphasis: {
+    series: [{
+      type: 'pie',
+      radius: isMobile() ? ['25%', '70%'] : ['30%', '75%'],
+      center: ['50%', '50%'],
+      data: getGenreData(),
       itemStyle: {
-        shadowBlur: 10,
-        shadowOffsetX: 0,
-        shadowColor: 'rgba(0, 0, 0, 0.2)'
+        borderRadius: isMobile() ? 6 : 8,
+        borderColor: '#fff',
+        borderWidth: isMobile() ? 2 : 3
+      },
+      label: {
+        show: true,
+        position: isMobile() ? 'inside' : 'outside',
+        color: '#1d1d1f',
+        fontSize: getMobileFontSize(12),
+        fontWeight: 600,
+        formatter: function(params) {
+          if (isMobile()) {
+            // Show only value inside on mobile
+            return params.value.toString()
+          } else {
+            // Show abbreviated genre names for desktop
+            const shortName = params.name.length > 8 ? 
+              params.name.split(' ')[0] : params.name
+            return `${shortName}\n${params.value}`
+          }
+        }
+      },
+      labelLine: {
+        show: !isMobile(), // Hide label lines on mobile
+        length: 15,
+        length2: 10,
+        lineStyle: {
+          color: '#d1d1d6',
+          width: 2
+        }
+      },
+      emphasis: {
+        scale: isMobile() ? 1.05 : 1.1,
+        itemStyle: {
+          shadowBlur: 10,
+          shadowOffsetX: 0,
+          shadowColor: 'rgba(0, 0, 0, 0.2)'
+        }
+      },
+      avoidLabelOverlap: true,
+      labelLayout: {
+        hideOverlap: true
       }
-    }
-  }]
-})
+    }]
+  }
+}
 
 const getGenreData = () => {
   const genres = {}
@@ -320,29 +467,46 @@ const getGenreData = () => {
 
 const changeChartType = (type) => {
   currentType.value = type
-  updateChart()
-}
-
-const resizeChart = () => {
-  if (myChart) {
-    setTimeout(() => {
-      myChart.resize()
-    }, 100)
+  showMobileFallback.value = false
+  
+  if (type === 'genre' && isTinyScreen()) {
+    showMobileFallback.value = true
+    if (myChart) {
+      myChart.dispose()
+      myChart = null
+    }
+    return
+  }
+  
+  if (!myChart) {
+    initChart()
+  } else {
+    updateChart()
   }
 }
 
 watch(() => props.data, () => {
-  updateChart()
+  if (!showMobileFallback.value) {
+    updateChart()
+  }
 }, { deep: true })
 
 onMounted(() => {
-  initChart()
+  // Initial mobile fallback check
+  showMobileFallback.value = isTinyScreen() && currentType.value === 'genre'
+  
+  if (!showMobileFallback.value) {
+    initChart()
+  }
 })
 
 onUnmounted(() => {
   if (myChart) {
     myChart.dispose()
-    window.removeEventListener('resize', resizeChart)
+    window.removeEventListener('resize', debouncedResize)
+  }
+  if (resizeTimer) {
+    clearTimeout(resizeTimer)
   }
 })
 </script>
@@ -383,11 +547,12 @@ onUnmounted(() => {
   font-size: 16px;
   cursor: pointer;
   transition: all 0.2s;
-  min-width: 44px;
-  min-height: 44px;
+  min-width: 48px;  /* Increased for better touch targets */
+  min-height: 48px; /* Increased for better touch targets */
   display: flex;
   align-items: center;
   justify-content: center;
+  touch-action: manipulation; /* Optimize for touch */
 }
 
 .chart-type-btn.active {
@@ -395,14 +560,69 @@ onUnmounted(() => {
   transform: scale(1.05);
 }
 
-.chart-area {
-  width: 100%;
-  height: 350px;
-  position: relative;
+.chart-type-btn:hover {
+  background: var(--primary-color);
+  opacity: 0.8;
 }
 
-/* Mobile-specific chart optimizations */
-@media (max-width: 480px) {
+.chart-area {
+  width: 100%;
+  height: 400px; /* Default height, will be overridden by JS */
+  position: relative;
+  transition: height 0.3s ease;
+}
+
+/* Mobile fallback cards */
+.mobile-data-cards {
+  display: grid;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.data-card {
+  background: var(--background-color);
+  border-radius: 12px;
+  padding: 16px;
+  border: 1px solid var(--border-color);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.album-name {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 16px;
+}
+
+.year {
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.card-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.genre {
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.popularity {
+  color: var(--primary-color);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* Mobile-specific optimizations */
+@media (max-width: 768px) {
   .chart-area {
     height: 320px;
   }
@@ -413,6 +633,74 @@ onUnmounted(() => {
   
   .chart-header h3 {
     font-size: 16px;
+  }
+  
+  .chart-controls {
+    gap: 6px;
+  }
+  
+  .chart-type-btn {
+    min-width: 44px;
+    min-height: 44px;
+    padding: 6px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .chart-area {
+    height: 280px;
+  }
+  
+  .music-chart-container {
+    padding: 12px;
+  }
+  
+  .chart-header {
+    margin-bottom: 12px;
+  }
+  
+  .chart-header h3 {
+    font-size: 15px;
+  }
+  
+  .chart-type-btn {
+    min-width: 42px;
+    min-height: 42px;
+    font-size: 14px;
+  }
+}
+
+/* Touch-specific improvements */
+@media (pointer: coarse) {
+  .chart-type-btn {
+    min-width: 48px;
+    min-height: 48px;
+  }
+  
+  .chart-type-btn:active {
+    transform: scale(0.95);
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .music-chart-container {
+    border: 2px solid var(--text-primary);
+  }
+  
+  .chart-type-btn {
+    border: 1px solid var(--text-primary);
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .chart-type-btn {
+    transition: none;
+  }
+  
+  .chart-area {
+    transition: none;
   }
 }
 </style> 
