@@ -67,20 +67,61 @@ const updateChart = () => {
 
 const getTimelineOption = () => ({
   backgroundColor: 'transparent',
-  textStyle: { color: '#1d1d1f' },
+  textStyle: { 
+    color: '#1d1d1f',
+    fontSize: 14,
+    fontWeight: 500
+  },
   tooltip: {
     trigger: 'axis',
     backgroundColor: '#ffffff',
     borderColor: '#d1d1d6',
-    textStyle: { color: '#1d1d1f' }
+    textStyle: { 
+      color: '#1d1d1f',
+      fontSize: 16
+    },
+    formatter: function(params) {
+      const data = params[0]
+      const albumData = props.data[data.dataIndex]
+      return `
+        <div style="padding: 8px;">
+          <strong style="font-size: 16px;">${albumData.album}</strong><br/>
+          <span style="color: #666; font-size: 14px;">Year: ${albumData.year}</span><br/>
+          <span style="color: #666; font-size: 14px;">Genre: ${albumData.genre}</span><br/>
+          <span style="color: #007AFF; font-size: 14px;">Popularity: ${albumData.popularity}/100</span>
+        </div>
+      `
+    }
+  },
+  grid: {
+    left: '15%',
+    right: '15%',
+    top: '15%',
+    bottom: '25%'
   },
   xAxis: {
     type: 'category',
     data: props.data.map(item => item.year),
-    axisLine: { lineStyle: { color: '#d1d1d6' } },
-    axisLabel: { color: '#86868b', fontSize: 12 }
+    axisLine: { 
+      lineStyle: { color: '#d1d1d6', width: 2 }
+    },
+    axisLabel: { 
+      color: '#86868b', 
+      fontSize: 16,
+      fontWeight: 500,
+      interval: 0,
+      rotate: 0,
+      margin: 12
+    },
+    axisTick: {
+      show: true,
+      length: 6,
+      lineStyle: { color: '#d1d1d6' }
+    }
   },
-  yAxis: { show: false },
+  yAxis: { 
+    show: false
+  },
   series: [{
     type: 'line',
     data: props.data.map((item, index) => ({
@@ -88,9 +129,12 @@ const getTimelineOption = () => ({
       name: item.album,
       itemStyle: { color: '#007AFF' }
     })),
-    lineStyle: { color: '#007AFF', width: 3 },
+    lineStyle: { 
+      color: '#007AFF', 
+      width: 4
+    },
     symbol: 'circle',
-    symbolSize: 8,
+    symbolSize: 12,
     smooth: true,
     areaStyle: {
       color: {
@@ -107,26 +151,66 @@ const getTimelineOption = () => ({
 
 const getPopularityOption = () => ({
   backgroundColor: 'transparent',
-  textStyle: { color: '#1d1d1f' },
+  textStyle: { 
+    color: '#1d1d1f',
+    fontSize: 14,
+    fontWeight: 500
+  },
   tooltip: {
     trigger: 'axis',
     backgroundColor: '#ffffff',
-    borderColor: '#d1d1d6'
+    borderColor: '#d1d1d6',
+    textStyle: { 
+      color: '#1d1d1f',
+      fontSize: 16
+    },
+    formatter: function(params) {
+      const data = params[0]
+      const albumData = props.data[data.dataIndex]
+      return `
+        <div style="padding: 8px;">
+          <strong style="font-size: 16px;">${albumData.album}</strong><br/>
+          <span style="color: #666; font-size: 14px;">${albumData.year} • ${albumData.genre}</span><br/>
+          <span style="color: #34C759; font-size: 16px; font-weight: 600;">⭐ ${albumData.popularity}/100</span>
+        </div>
+      `
+    }
+  },
+  grid: {
+    left: '5%',
+    right: '5%',
+    top: '15%',
+    bottom: '35%'
   },
   xAxis: {
     type: 'category',
-    data: props.data.map(item => item.album.length > 20 ? item.album.slice(0, 20) + '...' : item.album),
+    data: props.data.map(item => {
+      // Truncate long album names for mobile
+      return item.album.length > 12 ? item.album.slice(0, 12) + '..' : item.album
+    }),
     axisLabel: { 
       rotate: 45, 
       color: '#86868b', 
-      fontSize: 10 
+      fontSize: 12,
+      fontWeight: 500,
+      interval: 0,
+      margin: 8
     },
-    axisLine: { lineStyle: { color: '#d1d1d6' } }
+    axisLine: { 
+      lineStyle: { color: '#d1d1d6', width: 2 }
+    }
   },
   yAxis: {
     type: 'value',
-    axisLabel: { color: '#86868b', fontSize: 12 },
-    splitLine: { lineStyle: { color: '#f5f5f5' } }
+    axisLabel: { 
+      color: '#86868b', 
+      fontSize: 14,
+      fontWeight: 500
+    },
+    splitLine: { 
+      lineStyle: { color: '#f5f5f5', width: 1 }
+    },
+    axisLine: { show: false }
   },
   series: [{
     type: 'bar',
@@ -140,35 +224,80 @@ const getPopularityOption = () => ({
             { offset: 0, color: '#34C759' },
             { offset: 1, color: '#30D158' }
           ]
-        }
+        },
+        borderRadius: [4, 4, 0, 0]
       }
     })),
-    barWidth: '60%',
-    borderRadius: [4, 4, 0, 0]
+    barWidth: '70%'
   }]
 })
 
 const getGenreOption = () => ({
   backgroundColor: 'transparent',
-  textStyle: { color: '#1d1d1f' },
+  textStyle: { 
+    color: '#1d1d1f',
+    fontSize: 14,
+    fontWeight: 500
+  },
   tooltip: {
     trigger: 'item',
     backgroundColor: '#ffffff',
-    borderColor: '#d1d1d6'
+    borderColor: '#d1d1d6',
+    textStyle: { 
+      color: '#1d1d1f',
+      fontSize: 16
+    },
+    formatter: function(params) {
+      return `
+        <div style="padding: 8px;">
+          <strong style="font-size: 16px;">${params.name}</strong><br/>
+          <span style="color: #666; font-size: 14px;">${params.value} albums</span><br/>
+          <span style="color: #007AFF; font-size: 14px;">${params.percent}% of discography</span>
+        </div>
+      `
+    }
+  },
+  legend: {
+    show: false  // Hide legend to save space on mobile
   },
   series: [{
     type: 'pie',
-    radius: ['40%', '70%'],
+    radius: ['30%', '75%'],
     center: ['50%', '50%'],
     data: getGenreData(),
     itemStyle: {
       borderRadius: 8,
       borderColor: '#fff',
-      borderWidth: 2
+      borderWidth: 3
     },
     label: {
+      show: true,
+      position: 'outside',
       color: '#1d1d1f',
-      fontSize: 12
+      fontSize: 14,
+      fontWeight: 600,
+      formatter: function(params) {
+        // Show abbreviated genre names for mobile
+        const shortName = params.name.length > 8 ? 
+          params.name.split(' ')[0] : params.name
+        return `${shortName}\n${params.value}`
+      }
+    },
+    labelLine: {
+      show: true,
+      length: 15,
+      length2: 10,
+      lineStyle: {
+        color: '#d1d1d6',
+        width: 2
+      }
+    },
+    emphasis: {
+      itemStyle: {
+        shadowBlur: 10,
+        shadowOffsetX: 0,
+        shadowColor: 'rgba(0, 0, 0, 0.2)'
+      }
     }
   }]
 })
@@ -180,7 +309,7 @@ const getGenreData = () => {
     genres[genre] = (genres[genre] || 0) + 1
   })
   
-  const colors = ['#007AFF', '#34C759', '#FF9500', '#FF3B30', '#AF52DE']
+  const colors = ['#007AFF', '#34C759', '#FF9500', '#FF3B30', '#AF52DE', '#ff6b6b']
   
   return Object.entries(genres).map(([genre, count], index) => ({
     value: count,
@@ -195,7 +324,11 @@ const changeChartType = (type) => {
 }
 
 const resizeChart = () => {
-  if (myChart) myChart.resize()
+  if (myChart) {
+    setTimeout(() => {
+      myChart.resize()
+    }, 100)
+  }
 }
 
 watch(() => props.data, () => {
@@ -264,6 +397,22 @@ onUnmounted(() => {
 
 .chart-area {
   width: 100%;
-  height: 300px;
+  height: 350px;
+  position: relative;
+}
+
+/* Mobile-specific chart optimizations */
+@media (max-width: 480px) {
+  .chart-area {
+    height: 320px;
+  }
+  
+  .music-chart-container {
+    padding: 16px;
+  }
+  
+  .chart-header h3 {
+    font-size: 16px;
+  }
 }
 </style> 
