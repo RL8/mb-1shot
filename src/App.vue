@@ -14,11 +14,11 @@
     </header>
 
     <!-- Main content area -->
-    <main class="mobile-main">
+    <main class="mobile-main" v-if="currentView === 'artists'">
       <!-- Artist Selection -->
       <div class="content-card">
         <h2>Choose Your Artist</h2>
-        <p>Explore discographies of your favorite artists in beautiful, interactive charts.</p>
+        <p>Select an artist to start a deep conversation with your Music Bestie!</p>
         
         <div class="artist-selector">
           <button 
@@ -33,8 +33,21 @@
         </div>
       </div>
 
-      <!-- Artist Discography Chart -->
-      <div v-if="selectedArtist && selectedArtist.discography.length > 0">
+      <!-- AG-UI Chat Interface (NEW) -->
+      <div v-if="selectedArtist && showChat" class="content-card chat-container">
+        <div class="chat-header">
+          <h3>🎵 Music Bestie Chat</h3>
+          <button @click="toggleChat" class="chat-toggle">
+            {{ showChat ? '📊 Show Charts' : '💬 Start Chat' }}
+          </button>
+        </div>
+        
+        <!-- This is where MusicBestieChat component would go -->
+        <MusicBestieChat :artist="selectedArtist" />
+      </div>
+
+      <!-- Traditional Artist Discography Chart (when chat is hidden) -->
+      <div v-if="selectedArtist && selectedArtist.discography.length > 0 && !showChat">
         <MusicChart 
           :title="`${selectedArtist.name} Discography`"
           :data="selectedArtist.discography"
@@ -51,6 +64,30 @@
               <p>{{ selectedArtist.discography.length }} Albums • {{ selectedArtist.genre }} • {{ selectedArtist.activeYears }}</p>
             </div>
           </div>
+          
+          <!-- AG-UI Integration Preview -->
+          <div class="agui-preview">
+            <h4>🚀 AG-UI Enhanced Features (Coming Soon)</h4>
+            <div class="feature-grid">
+              <div class="feature-item">
+                <span class="feature-icon">🎭</span>
+                <span>Creative Evolution Analysis</span>
+              </div>
+              <div class="feature-item">
+                <span class="feature-icon">🌟</span>
+                <span>Hidden Gems Discovery</span>
+              </div>
+              <div class="feature-item">
+                <span class="feature-icon">💭</span>
+                <span>Lyrical Theme Exploration</span>
+              </div>
+              <div class="feature-item">
+                <span class="feature-icon">🔗</span>
+                <span>Influence Network Mapping</span>
+              </div>
+            </div>
+          </div>
+          
           <div class="album-list">
             <div 
               v-for="album in selectedArtist.discography" 
@@ -83,14 +120,28 @@
           <p v-else class="status-text offline">
             ⚠️ Using offline artist data
           </p>
+          
+          <!-- AG-UI Status -->
+          <div class="agui-status">
+            <p class="status-text">
+              🎵 AG-UI Integration: <span class="status-ready">Ready to implement</span>
+            </p>
+            <small>Follow the integration guide to activate conversational features</small>
+          </div>
         </div>
       </div>
     </main>
+
+    <!-- Knowledge Graph Section (NEW) -->
+    <div v-if="currentView === 'knowledge-graph'" class="content-card knowledge-graph-container">
+      <MusicKnowledgeGraph />
+    </div>
 
     <!-- Mobile navigation menu -->
     <nav class="mobile-nav" :class="{ active: menuOpen }">
       <ul>
         <li><a href="#" @click="navigate('artists')">🎤 Artists</a></li>
+        <li><a href="#" @click="navigate('knowledge-graph')">🕸️ Knowledge Graph</a></li>
         <li><a href="#" @click="navigate('favorites')">❤️ Favorites</a></li>
         <li><a href="#" @click="navigate('charts')">📊 Charts</a></li>
         <li><a href="#" @click="navigate('settings')">⚙️ Settings</a></li>
@@ -107,18 +158,24 @@
 <script>
 import { ref, reactive, onMounted } from 'vue'
 import apiService from './services/api.js'
+import MusicBestieChat from './components/MusicBestieChat.vue'
 import MusicChart from './components/MusicChart.vue'
+import MusicKnowledgeGraph from './components/MusicKnowledgeGraph.vue'
 
 export default {
   name: 'MusicBesties',
   components: {
-    MusicChart
+    MusicBestieChat,
+    MusicChart,
+    MusicKnowledgeGraph
   },
   setup() {
     const menuOpen = ref(false)
     const loading = ref(true)
     const backendConnected = ref(false)
     const selectedArtist = ref(null)
+    const showChat = ref(false)
+    const currentView = ref('artists')
     const toast = reactive({
       show: false,
       message: ''
@@ -216,7 +273,8 @@ export default {
 
     const selectArtist = async (artist) => {
       selectedArtist.value = artist
-      showToast(`🎤 Exploring ${artist.name}'s discography`)
+      showChat.value = true
+      showToast(`Selected ${artist.name} ${artist.emoji} - Ready to chat!`)
       
       // Track artist selection
       if (backendConnected.value) {
@@ -261,11 +319,16 @@ export default {
 
     const navigate = (section) => {
       menuOpen.value = false
+      currentView.value = section
       showToast(`📱 Navigating to ${section}`)
       
       if (backendConnected.value) {
         apiService.trackEvent('navigation', { section })
       }
+    }
+
+    const toggleChat = () => {
+      showChat.value = !showChat.value
     }
 
     const showToast = (message) => {
@@ -281,13 +344,16 @@ export default {
       loading,
       backendConnected,
       selectedArtist,
-      artists,
+      showChat,
+      currentView,
       toast,
+      artists,
       toggleMenu,
+      navigate,
       selectArtist,
       selectAlbum,
-      navigate,
-      showToast
+      showToast,
+      toggleChat
     }
   }
 }

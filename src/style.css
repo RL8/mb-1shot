@@ -549,4 +549,283 @@ html {
     padding-left: max(20px, env(safe-area-inset-left));
     padding-right: max(20px, env(safe-area-inset-right));
   }
+}
+
+/* AG-UI Integration Styles */
+.chat-container {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 20px;
+  padding: 0;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.chat-header {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.chat-header h3 {
+  margin: 0;
+  color: white;
+  font-size: 1.1rem;
+}
+
+.chat-toggle {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.chat-toggle:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.chat-placeholder {
+  padding: 1rem;
+}
+
+.mock-chat {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.mock-message {
+  display: flex;
+  gap: 0.75rem;
+  animation: fadeInUp 0.5s ease-out;
+}
+
+.mock-message.user-message {
+  flex-direction: row-reverse;
+}
+
+.mock-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.mock-content {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.75rem 1rem;
+  border-radius: 1rem;
+  color: white;
+  max-width: 80%;
+  backdrop-filter: blur(10px);
+}
+
+.user-message .mock-content {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.mock-content p {
+  margin: 0 0 0.5rem 0;
+  line-height: 1.4;
+}
+
+.mock-content p:last-child {
+  margin-bottom: 0;
+}
+
+.mock-typing {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.typing-dots {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.75rem 1rem;
+  border-radius: 1rem;
+  display: flex;
+  gap: 0.25rem;
+  backdrop-filter: blur(10px);
+}
+
+.typing-dots span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.6);
+  animation: typing 1.4s infinite;
+}
+
+.typing-dots span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-dots span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.chat-input-demo {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.demo-input {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 1.5rem;
+  padding: 0.75rem 1rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1rem;
+  backdrop-filter: blur(10px);
+}
+
+.demo-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.demo-send {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  opacity: 0.7;
+}
+
+.integration-note {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  border-radius: 1rem;
+  color: white;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.integration-note p {
+  margin: 0 0 0.5rem 0;
+  line-height: 1.4;
+}
+
+.integration-note p:last-child {
+  margin-bottom: 0;
+}
+
+.agui-preview {
+  background: rgba(102, 126, 234, 0.1);
+  padding: 1rem;
+  border-radius: 1rem;
+  margin: 1rem 0;
+  border-left: 4px solid #667eea;
+}
+
+.agui-preview h4 {
+  margin: 0 0 1rem 0;
+  color: #667eea;
+  font-size: 1rem;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.75rem;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.feature-icon {
+  font-size: 1.2rem;
+  width: 30px;
+  text-align: center;
+}
+
+.agui-status {
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.status-ready {
+  color: #4ade80;
+  font-weight: 600;
+}
+
+.agui-status small {
+  display: block;
+  margin-top: 0.25rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.8rem;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes typing {
+  0%, 60%, 100% {
+    transform: translateY(0);
+    opacity: 0.4;
+  }
+  30% {
+    transform: translateY(-8px);
+    opacity: 1;
+  }
+}
+
+/* Mobile responsiveness for AG-UI elements */
+@media (max-width: 768px) {
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .chat-header {
+    padding: 0.75rem;
+  }
+  
+  .chat-placeholder {
+    padding: 0.75rem;
+  }
+  
+  .mock-content {
+    max-width: 85%;
+  }
+  
+  .integration-note {
+    padding: 0.75rem;
+  }
 } 
