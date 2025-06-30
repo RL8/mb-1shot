@@ -12,11 +12,6 @@
       "dest": "/dist/$1"
     }
   ],
-  "functions": {
-    "backend/server.js": {
-      "maxDuration": 10
-    }
-  },
   "env": {
     "AURA_DB_URI": "@aura_db_uri",
     "AURA_DB_USERNAME": "@aura_db_username", 
