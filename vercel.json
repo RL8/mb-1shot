@@ -11,10 +11,5 @@
       "src": "/(.*)",
       "dest": "/dist/$1"
     }
-  ],
-  "env": {
-    "AURA_DB_URI": "@aura_db_uri",
-    "AURA_DB_USERNAME": "@aura_db_username", 
-    "AURA_DB_PASSWORD": "@aura_db_password"
-  }
+  ]
 } 
