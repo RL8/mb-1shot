@@ -385,6 +385,40 @@ app.get('/api/search', async (req, res) => {
   }
 });
 
+// Add debug endpoint for password analysis
+app.get('/api/debug-password', (req, res) => {
+  try {
+    const password = process.env.AURA_DB_PASSWORD;
+    
+    if (!password) {
+      return res.json({ error: 'Password not set' });
+    }
+    
+    const chars = Array.from(password).map((char, index) => ({
+      index,
+      char,
+      charCode: char.charCodeAt(0),
+      isVisible: char.charCodeAt(0) >= 32 && char.charCodeAt(0) <= 126
+    }));
+    
+    res.json({
+      length: password.length,
+      firstChar: password[0],
+      lastChar: password[password.length - 1],
+      firstCharCode: password.charCodeAt(0),
+      lastCharCode: password.charCodeAt(password.length - 1),
+      characters: chars,
+      base64: Buffer.from(password).toString('base64'),
+      hex: Buffer.from(password).toString('hex')
+    });
+  } catch (error) {
+    res.status(500).json({ 
+      error: 'Debug failed', 
+      details: error.message 
+    });
+  }
+});
+
 // Error handling middleware
 app.use((err, req, res, next) => {
   console.error(err.stack);

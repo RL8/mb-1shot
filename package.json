@@ -16,14 +16,16 @@
     "gh-pages": "gh-pages -d dist"
   },
   "dependencies": {
-    "vue": "^3.4.29",
-    "vue-router": "^4.3.3",
+    "concurrently": "^8.2.2",
+    "dotenv": "^17.0.0",
     "echarts": "^5.5.1",
-    "concurrently": "^8.2.2"
+    "neo4j-driver": "^5.28.1",
+    "vue": "^3.4.29",
+    "vue-router": "^4.3.3"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.5",
-    "vite": "^5.3.4",
-    "gh-pages": "^6.1.1"
+    "gh-pages": "^6.1.1",
+    "vite": "^5.3.4"
   }
 }
