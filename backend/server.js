@@ -135,6 +135,117 @@ app.get('/api/settings', (req, res) => {
   });
 });
 
+// Database connection test endpoint for debugging
+app.get('/api/db-test', async (req, res) => {
+  console.log('=== AuraDB Connection Test ===');
+  console.log('Environment variables:');
+  console.log('AURA_DB_URI:', process.env.AURA_DB_URI ? 'SET' : 'NOT SET');
+  console.log('AURA_DB_USERNAME:', process.env.AURA_DB_USERNAME ? 'SET' : 'NOT SET');
+  console.log('AURA_DB_PASSWORD:', process.env.AURA_DB_PASSWORD ? 'SET (length: ' + (process.env.AURA_DB_PASSWORD?.length || 0) + ')' : 'NOT SET');
+  
+  const response = {
+    timestamp: new Date().toISOString(),
+    environment: {
+      NODE_ENV: process.env.NODE_ENV,
+      AURA_DB_URI: process.env.AURA_DB_URI ? 'SET' : 'NOT SET',
+      AURA_DB_USERNAME: process.env.AURA_DB_USERNAME ? 'SET' : 'NOT SET',
+      AURA_DB_PASSWORD: process.env.AURA_DB_PASSWORD ? 'SET (length: ' + (process.env.AURA_DB_PASSWORD?.length || 0) + ')' : 'NOT SET'
+    },
+    driver: {
+      initialized: !!driver,
+      config: {
+        uri: process.env.AURA_DB_URI?.substring(0, 30) + '...' || 'NOT SET'
+      }
+    },
+    tests: []
+  };
+
+  try {
+    // Test 1: Basic driver verification
+    console.log('Test 1: Driver verification...');
+    response.tests.push({
+      name: 'Driver Initialization',
+      status: driver ? 'PASS' : 'FAIL',
+      details: driver ? 'Driver object exists' : 'Driver object missing'
+    });
+
+    if (!driver) {
+      return res.json(response);
+    }
+
+    // Test 2: Session creation
+    console.log('Test 2: Session creation...');
+    const session = driver.session();
+    response.tests.push({
+      name: 'Session Creation',
+      status: 'PASS',
+      details: 'Session created successfully'
+    });
+
+    // Test 3: Simple connectivity test
+    console.log('Test 3: Connectivity test...');
+    const connectivityResult = await session.run('RETURN 1 as test');
+    const testValue = connectivityResult.records[0].get('test').toNumber();
+    
+    response.tests.push({
+      name: 'Basic Connectivity',
+      status: testValue === 1 ? 'PASS' : 'FAIL',
+      details: `Received: ${testValue}, Expected: 1`
+    });
+
+    // Test 4: Database info
+    console.log('Test 4: Database info...');
+    const dbInfoResult = await session.run('CALL dbms.components() YIELD name, versions, edition');
+    const dbInfo = dbInfoResult.records.map(record => ({
+      name: record.get('name'),
+      versions: record.get('versions'),
+      edition: record.get('edition')
+    }));
+
+    response.tests.push({
+      name: 'Database Info',
+      status: 'PASS',
+      details: dbInfo
+    });
+
+    // Test 5: Check for existing data
+    console.log('Test 5: Data check...');
+    const dataResult = await session.run('MATCH (n) RETURN count(n) as nodeCount LIMIT 1');
+    const nodeCount = dataResult.records[0].get('nodeCount').toNumber();
+    
+    response.tests.push({
+      name: 'Data Check',
+      status: 'PASS',
+      details: `Total nodes in database: ${nodeCount}`
+    });
+
+    await session.close();
+    response.overall = 'SUCCESS';
+    console.log('=== All tests completed successfully ===');
+
+  } catch (error) {
+    console.error('Database test failed:', error);
+    response.tests.push({
+      name: 'Connection Test',
+      status: 'FAIL',
+      details: {
+        message: error.message,
+        code: error.code,
+        name: error.name,
+        stack: error.stack?.split('\n').slice(0, 5) // First 5 lines of stack
+      }
+    });
+    response.overall = 'FAILED';
+    response.error = {
+      message: error.message,
+      code: error.code,
+      type: error.constructor.name
+    };
+  }
+
+  res.json(response);
+});
+
 // Knowledge Graph API Endpoints
 app.get('/api/artists', async (req, res) => {
   try {
