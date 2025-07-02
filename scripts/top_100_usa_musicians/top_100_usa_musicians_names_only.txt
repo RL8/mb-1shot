@@ -1,0 +1,106 @@
+TOP 100 USA MUSICIANS - NAMES ONLY
+========================================
+Generated: 2025-07-01
+Source: Spotify API (USA Market)
+Total Artists: 100
+
+ 1. Billie Eilish
+ 2. Bad Bunny
+ 3. Taylor Swift
+ 4. The Weeknd
+ 5. Drake
+ 6. Bruno Mars
+ 7. Ariana Grande
+ 8. Ed Sheeran
+ 9. Kendrick Lamar
+10. Eminem
+11. BTS
+12. Lady Gaga
+13. Coldplay
+14. Sabrina Carpenter
+15. KAROL G
+16. SZA
+17. Justin Bieber
+18. Post Malone
+19. Morgan Wallen
+20. Rihanna
+21. Lana Del Rey
+22. Dua Lipa
+23. Queen
+24. Maroon 5
+25. Fuerza Regida
+26. Linkin Park
+27. XXXTENTACION
+28. Shakira
+29. Tate McRae
+30. Benson Boone
+31. Tyler, The Creator
+32. Travis Scott
+33. Arctic Monkeys
+34. Peso Pluma
+35. David Guetta
+36. Junior H
+37. Olivia Rodrigo
+38. Chris Brown
+39. Michael Jackson
+40. sombr
+41. Beyoncé
+42. Doja Cat
+43. Selena Gomez
+44. Alex Warren
+45. Juice WRLD
+46. Imagine Dragons
+47. Shawn Mendes
+48. Metallica
+49. The Beatles
+50. Gracie Abrams
+51. Chappell Roan
+52. Twenty One Pilots
+53. ROSÉ
+54. Frank Ocean
+55. Sia
+56. Calvin Harris
+57. Charli xcx
+58. J. Cole
+59. Playboi Carti
+60. Zach Bryan
+61. Future
+62. AC/DC
+63. Teddy Swims
+64. Kali Uchis
+65. Radiohead
+66. Guns N' Roses
+67. Tito Double P
+68. Stray Kids
+69. Red Hot Chili Peppers
+70. Pitbull
+71. Nirvana
+72. The Chainsmokers
+73. The Neighbourhood
+74. Katy Perry
+75. BLACKPINK
+76. Fleetwood Mac
+77. Khalid
+78. Metro Boomin
+79. The Marías
+80. James Arthur
+81. Luke Combs
+82. Grupo Frontera
+83. A$AP Rocky
+84. Cigarettes After Sex
+85. Lil Wayne
+86. Nicki Minaj
+87. Lil Tecca
+88. j-hope
+89. Harry Styles
+90. Neton Vega
+91. PARTYNEXTDOOR
+92. Alan Walker
+93. JENNIE
+94. Jimin
+95. NIKI
+96. 21 Savage
+97. Lil Baby
+98. Lorde
+99. Green Day
+100. Daniel Caesar

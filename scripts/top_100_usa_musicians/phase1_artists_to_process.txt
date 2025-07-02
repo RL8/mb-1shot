@@ -1,0 +1,64 @@
+# Phase 1 Processing Queue - Artists with Reddit Presence Only
+# Format: Artist Name (one per line)
+
+# PRIORITY 1: Failed artists that need deletion and reload (10 artists with Reddit)
+The Weeknd
+Drake
+Ed Sheeran
+Lady Gaga
+Justin Bieber
+Post Malone
+Rihanna
+Dua Lipa
+Olivia Rodrigo
+
+# PRIORITY 2: High-value missing artists (8 artists)
+Travis Scott
+Gracie Abrams
+Playboi Carti
+SZA
+Lana Del Rey
+Sabrina Carpenter
+Kendrick Lamar
+Morgan Wallen
+Coldplay
+
+# PRIORITY 3: Medium-value missing artists with strong Reddit presence (44 artists)
+Doja Cat
+Zach Bryan
+Tate McRae
+Tyler, The Creator
+Charli xcx
+Daniel Caesar
+XXXTENTACION
+Juice WRLD
+Linkin Park
+Kali Uchis
+Cigarettes After Sex
+A$AP Rocky
+The Neighbourhood
+Nicki Minaj
+Michael Jackson
+Alan Walker
+Imagine Dragons
+Luke Combs
+Queen
+J. Cole
+Twenty One Pilots
+Lorde
+Green Day
+Lil Wayne
+Lil Baby
+The Beatles
+AC/DC
+Fleetwood Mac
+Radiohead
+Chris Brown
+Guns N' Roses
+Red Hot Chili Peppers
+Metallica
+Nirvana
+Sia
+Shawn Mendes
+Selena Gomez
+Katy Perry 

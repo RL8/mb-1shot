@@ -1,0 +1,914 @@
+🎵 TOP 100 CURRENT USA MUSICIANS
+==================================================
+Generated: 2025-07-01 06:00:39
+Data Source: Spotify API (USA Market)
+Total Artists: 100
+
+Ranking Methodology:
+- Spotify Popularity Score (40%)
+- Average Track Popularity (30%)
+- Follower Count (20%)
+- Playlist Appearances (10%)
+
+==================================================
+
+# 1. Billie Eilish
+     Score: 92.34/100
+     Popularity: 95/100
+     Followers: 113,947,421
+     Playlist Appearances: 28
+     Genres: 
+     Sample Tracks: BIRDS OF A FEATHER, BLUE, BIRDS OF A FEATHER
+     Spotify: https://open.spotify.com/artist/6qqNVTkY8uBg9cP3Jd7DAH
+--------------------------------------------------
+# 2. Bad Bunny
+     Score: 89.84/100
+     Popularity: 100/100
+     Followers: 97,241,407
+     Playlist Appearances: 12
+     Genres: reggaeton, trap latino, urbano latino
+     Sample Tracks: Moscow Mule, EoO, DtMF
+     Spotify: https://open.spotify.com/artist/4q3ewBCX7sLwd24euuV69X
+--------------------------------------------------
+# 3. Taylor Swift
+     Score: 88.62/100
+     Popularity: 99/100
+     Followers: 139,537,069
+     Playlist Appearances: 11
+     Genres: 
+     Sample Tracks: Cruel Summer, Cruel Summer, Fortnight (feat. Post Malone)
+     Spotify: https://open.spotify.com/artist/06HL4z0CvFAxyc27GXpf02
+--------------------------------------------------
+# 4. The Weeknd
+     Score: 88.21/100
+     Popularity: 97/100
+     Followers: 107,240,180
+     Playlist Appearances: 38
+     Genres: 
+     Sample Tracks: Popular (with Playboi Carti & Madonna) - From The Idol Vol. 1 (Music from the HBO Original Series), Popular (with Playboi Carti & Madonna), Timeless (feat. Playboi Carti)
+     Spotify: https://open.spotify.com/artist/1Xyo4u8uXC1ZmMpatF05PJ
+--------------------------------------------------
+# 5. Drake
+     Score: 87.49/100
+     Popularity: 98/100
+     Followers: 99,661,380
+     Playlist Appearances: 32
+     Genres: rap
+     Sample Tracks: Virginia Beach, NOKIA, NOKIA
+     Spotify: https://open.spotify.com/artist/3TVXtAsR1Inumwj472S9r4
+--------------------------------------------------
+# 6. Bruno Mars
+     Score: 85.54/100
+     Popularity: 93/100
+     Followers: 72,924,701
+     Playlist Appearances: 32
+     Genres: 
+     Sample Tracks: APT., Die With A Smile, Die With A Smile
+     Spotify: https://open.spotify.com/artist/0du5cEVh5yTK9QJze8zA0C
+--------------------------------------------------
+# 7. Ariana Grande
+     Score: 84.28/100
+     Popularity: 93/100
+     Followers: 105,883,426
+     Playlist Appearances: 13
+     Genres: pop
+     Sample Tracks: Popular, twilight zone, twilight zone
+     Spotify: https://open.spotify.com/artist/66CXWjxzNUsdJxJ2JdwvnR
+--------------------------------------------------
+# 8. Ed Sheeran
+     Score: 84.14/100
+     Popularity: 92/100
+     Followers: 121,000,076
+     Playlist Appearances: 17
+     Genres: soft pop
+     Sample Tracks: Azizam, Sapphire, Azizam
+     Spotify: https://open.spotify.com/artist/6eUKZXaKkcviH0Ku9w2n3V
+--------------------------------------------------
+# 9. Kendrick Lamar
+     Score: 81.04/100
+     Popularity: 95/100
+     Followers: 42,393,867
+     Playlist Appearances: 42
+     Genres: hip hop, west coast hip hop
+     Sample Tracks: luther (with sza), luther (with sza), luther (with sza)
+     Spotify: https://open.spotify.com/artist/2YZyLoL8N0Wb9xBt1NhZWg
+--------------------------------------------------
+#10. Eminem
+     Score: 80.74/100
+     Popularity: 92/100
+     Followers: 101,718,216
+     Playlist Appearances: 6
+     Genres: rap, hip hop
+     Sample Tracks: Houdini, Tobey (feat. Big Sean and BabyTron), Tobey (feat. Big Sean and BabyTron)
+     Spotify: https://open.spotify.com/artist/7dGJo4pcD2V6oG8kP0tJRR
+--------------------------------------------------
+#11. BTS
+     Score: 78.42/100
+     Popularity: 89/100
+     Followers: 79,585,592
+     Playlist Appearances: 1
+     Genres: k-pop
+     Sample Tracks: 
+     Spotify: https://open.spotify.com/artist/3Nrfpe0tUJi4K4DXYWgMUX
+--------------------------------------------------
+#12. Lady Gaga
+     Score: 78.09/100
+     Popularity: 93/100
+     Followers: 39,307,072
+     Playlist Appearances: 27
+     Genres: art pop, pop
+     Sample Tracks: Die With A Smile, Die With A Smile, Abracadabra
+     Spotify: https://open.spotify.com/artist/1HY2Jd0NmPuamShAr6KMms
+--------------------------------------------------
+#13. Coldplay
+     Score: 76.0/100
+     Popularity: 92/100
+     Followers: 58,925,839
+     Playlist Appearances: 7
+     Genres: 
+     Sample Tracks: Sparks, Something Just Like This, Yellow
+     Spotify: https://open.spotify.com/artist/4gzpq5DPGxSnKTe4SA8HAU
+--------------------------------------------------
+#14. Sabrina Carpenter
+     Score: 75.92/100
+     Popularity: 92/100
+     Followers: 23,697,715
+     Playlist Appearances: 42
+     Genres: 
+     Sample Tracks: Espresso, Espresso, Espresso
+     Spotify: https://open.spotify.com/artist/74KM79TiuVKeVCqs8QtB0B
+--------------------------------------------------
+#15. KAROL G
+     Score: 75.54/100
+     Popularity: 93/100
+     Followers: 57,677,486
+     Playlist Appearances: 2
+     Genres: reggaeton, latin, urbano latino
+     Sample Tracks: LATINA FOREVA, Milagros
+     Spotify: https://open.spotify.com/artist/790FomKkXshlbRYZFtlgla
+--------------------------------------------------
+#16. SZA
+     Score: 75.5/100
+     Popularity: 93/100
+     Followers: 30,926,832
+     Playlist Appearances: 29
+     Genres: r&b
+     Sample Tracks: luther (with sza), luther (with sza), luther (with sza)
+     Spotify: https://open.spotify.com/artist/7tYKF4w9nC0nq9CsPZTHyP
+--------------------------------------------------
+#17. Justin Bieber
+     Score: 75.33/100
+     Popularity: 92/100
+     Followers: 83,034,904
+     Playlist Appearances: 13
+     Genres: 
+     Sample Tracks: STAY (with Justin Bieber), Private Landing (feat. Justin Bieber & Future), STAY (with Justin Bieber)
+     Spotify: https://open.spotify.com/artist/1uNFoZAHBGtllmzznpCI3s
+--------------------------------------------------
+#18. Post Malone
+     Score: 74.32/100
+     Popularity: 91/100
+     Followers: 47,175,066
+     Playlist Appearances: 26
+     Genres: 
+     Sample Tracks: I Had Some Help (Feat. Morgan Wallen), Nosedive (Feat. Lainey Wilson), What Don't Belong To Me
+     Spotify: https://open.spotify.com/artist/246dkjvS1zLTtiykXe5h60
+--------------------------------------------------
+#19. Morgan Wallen
+     Score: 73.32/100
+     Popularity: 96/100
+     Followers: 13,017,481
+     Playlist Appearances: 105
+     Genres: country
+     Sample Tracks: I Had Some Help (Feat. Morgan Wallen), What I Want (feat. Tate McRae), Just In Case
+     Spotify: https://open.spotify.com/artist/4oUHIQIBe0LHzYfvXNW4QM
+--------------------------------------------------
+#20. Rihanna
+     Score: 72.97/100
+     Popularity: 93/100
+     Followers: 67,399,265
+     Playlist Appearances: 3
+     Genres: 
+     Sample Tracks: American Oxygen, Lift Me Up - From Black Panther: Wakanda Forever - Music From and Inspired By
+     Spotify: https://open.spotify.com/artist/5pKCCKE2ajJHZ9KAiaK11H
+--------------------------------------------------
+#21. Lana Del Rey
+     Score: 71.63/100
+     Popularity: 92/100
+     Followers: 48,606,769
+     Playlist Appearances: 3
+     Genres: 
+     Sample Tracks: Tough, Henry, come on
+     Spotify: https://open.spotify.com/artist/00FQb4jTyendYWaN8pK0wa
+--------------------------------------------------
+#22. Dua Lipa
+     Score: 71.4/100
+     Popularity: 90/100
+     Followers: 46,237,963
+     Playlist Appearances: 13
+     Genres: pop
+     Sample Tracks: Handlebars (feat. Dua Lipa), Don't Start Now, One Kiss (with Dua Lipa)
+     Spotify: https://open.spotify.com/artist/6M2wZ9GZgrQXHCFfjv46we
+--------------------------------------------------
+#23. Queen
+     Score: 71.14/100
+     Popularity: 86/100
+     Followers: 54,224,532
+     Playlist Appearances: 2
+     Genres: classic rock, rock, glam rock
+     Sample Tracks: Bohemian Rhapsody - Remastered 2011
+     Spotify: https://open.spotify.com/artist/1dfeR4HaWDbWqFHLkxsg1d
+--------------------------------------------------
+#24. Maroon 5
+     Score: 71.07/100
+     Popularity: 89/100
+     Followers: 45,106,925
+     Playlist Appearances: 4
+     Genres: pop
+     Sample Tracks: Priceless (feat. LISA), Beautiful Mistakes (feat. Megan Thee Stallion)
+     Spotify: https://open.spotify.com/artist/04gDigrS5kc9YWfZHwBETP
+--------------------------------------------------
+#25. Fuerza Regida
+     Score: 70.85/100
+     Popularity: 94/100
+     Followers: 16,717,870
+     Playlist Appearances: 12
+     Genres: corrido, corridos tumbados, corridos bélicos
+     Sample Tracks: Marlboro Rojo, TU SANCHO, ME JALO
+     Spotify: https://open.spotify.com/artist/0ys2OFYzWYB5hRDLCsBqxt
+--------------------------------------------------
+#26. Linkin Park
+     Score: 70.35/100
+     Popularity: 91/100
+     Followers: 30,488,693
+     Playlist Appearances: 2
+     Genres: nu metal, rap metal, rock
+     Sample Tracks: In the End
+     Spotify: https://open.spotify.com/artist/6XyY86QOPPrYVGvF9ch6wz
+--------------------------------------------------
+#27. XXXTENTACION
+     Score: 70.22/100
+     Popularity: 87/100
+     Followers: 50,617,199
+     Playlist Appearances: 2
+     Genres: emo rap
+     Sample Tracks: SAD!, Jocelyn Flores
+     Spotify: https://open.spotify.com/artist/15UsOTVnJzReFVN1VCnxy4
+--------------------------------------------------
+#28. Shakira
+     Score: 70.19/100
+     Popularity: 89/100
+     Followers: 38,446,547
+     Playlist Appearances: 1
+     Genres: latin pop
+     Sample Tracks: 
+     Spotify: https://open.spotify.com/artist/0EmeFodog0BfCgMzAIvKQp
+--------------------------------------------------
+#29. Tate McRae
+     Score: 70.04/100
+     Popularity: 92/100
+     Followers: 8,148,201
+     Playlist Appearances: 37
+     Genres: 
+     Sample Tracks: What I Want (feat. Tate McRae), Just Keep Watching (From F1® The Movie), What I Want (feat. Tate McRae)
+     Spotify: https://open.spotify.com/artist/45dkTj5sMRSjrmBSBeiHym
+--------------------------------------------------
+#30. Benson Boone
+     Score: 69.99/100
+     Popularity: 89/100
+     Followers: 6,134,876
+     Playlist Appearances: 32
+     Genres: 
+     Sample Tracks: Beautiful Things, Mystical Magical, Beautiful Things
+     Spotify: https://open.spotify.com/artist/22wbnEMDvgVIAGdFeek6ET
+--------------------------------------------------
+#31. Tyler, The Creator
+     Score: 69.92/100
+     Popularity: 90/100
+     Followers: 22,692,213
+     Playlist Appearances: 8
+     Genres: 
+     Sample Tracks: See You Again (feat. Kali Uchis), See You Again (feat. Kali Uchis), See You Again (feat. Kali Uchis)
+     Spotify: https://open.spotify.com/artist/4V8LLVI7PbaPR0K2TGSxFF
+--------------------------------------------------
+#32. Travis Scott
+     Score: 69.66/100
+     Popularity: 93/100
+     Followers: 39,388,394
+     Playlist Appearances: 14
+     Genres: rap
+     Sample Tracks: FE!N (feat. Playboi Carti), Type Shit, GET OFF ME (with Travis Scott)
+     Spotify: https://open.spotify.com/artist/0Y5tJX1MQlPlqiwlOH1tJY
+--------------------------------------------------
+#33. Arctic Monkeys
+     Score: 69.29/100
+     Popularity: 88/100
+     Followers: 30,750,204
+     Playlist Appearances: 5
+     Genres: indie, garage rock
+     Sample Tracks: I Wanna Be Yours, Do I Wanna Know?, 505
+     Spotify: https://open.spotify.com/artist/7Ln80lUS6He07XvHI8qqHH
+--------------------------------------------------
+#34. Peso Pluma
+     Score: 69.05/100
+     Popularity: 92/100
+     Followers: 22,237,957
+     Playlist Appearances: 1
+     Genres: corrido, corridos tumbados, corridos bélicos
+     Sample Tracks: 
+     Spotify: https://open.spotify.com/artist/12GqGscKJx3aE4t07u7eVZ
+--------------------------------------------------
+#35. David Guetta
+     Score: 68.57/100
+     Popularity: 91/100
+     Followers: 27,059,908
+     Playlist Appearances: 12
+     Genres: edm, dance
+     Sample Tracks: Beautiful People, I'm Good (Blue), Cry Baby
+     Spotify: https://open.spotify.com/artist/1Cs0zKBU1kc0i8ypK3B9ai
+--------------------------------------------------
+#36. Junior H
+     Score: 68.35/100
+     Popularity: 90/100
+     Followers: 25,757,180
+     Playlist Appearances: 1
+     Genres: corridos tumbados, corrido, corridos bélicos
+     Sample Tracks: 
+     Spotify: https://open.spotify.com/artist/7Gi6gjaWy3DxyilpF1a8Is
+--------------------------------------------------
+#37. Olivia Rodrigo
+     Score: 68.01/100
+     Popularity: 88/100
+     Followers: 46,761,429
+     Playlist Appearances: 9
+     Genres: 
+     Sample Tracks: drivers license, good 4 u, traitor
+     Spotify: https://open.spotify.com/artist/1McMsnEElThX1knmY4oliG
+--------------------------------------------------
+#38. Chris Brown
+     Score: 67.79/100
+     Popularity: 91/100
+     Followers: 26,902,858
+     Playlist Appearances: 3
+     Genres: r&b
+     Sample Tracks: Holy Blindfold, Superhero (Heroes & Villains) [with Future & Chris Brown]
+     Spotify: https://open.spotify.com/artist/7bXgB6jMjp9ATFy66eO08Z
+--------------------------------------------------
+#39. Michael Jackson
+     Score: 67.61/100
+     Popularity: 86/100
+     Followers: 36,073,161
+     Playlist Appearances: 1
+     Genres: 
+     Sample Tracks: 
+     Spotify: https://open.spotify.com/artist/3fMbdgg4jU18AjLCKBhRSm
+--------------------------------------------------
+#40. sombr
+     Score: 67.5/100
+     Popularity: 87/100
+     Followers: 1,385,271
+     Playlist Appearances: 16
+     Genres: 
+     Sample Tracks: back to friends, undressed, back to friends
+     Spotify: https://open.spotify.com/artist/4G9NDjRyZFDlJKMRL8hx3S
+--------------------------------------------------
+#41. Beyoncé
+     Score: 67.41/100
+     Popularity: 89/100
+     Followers: 40,527,582
+     Playlist Appearances: 6
+     Genres: 
+     Sample Tracks: TEXAS HOLD 'EM, BODYGUARD, II MOST WANTED
+     Spotify: https://open.spotify.com/artist/6vWDO969PvNqNYHIOW5v0m
+--------------------------------------------------
+#42. Doja Cat
+     Score: 67.09/100
+     Popularity: 87/100
+     Followers: 33,610,135
+     Playlist Appearances: 8
+     Genres: 
+     Sample Tracks: Paint The Town Red, Kill Bill (feat. Doja Cat), Lose My Mind (feat. Doja Cat) [From F1® The Movie]
+     Spotify: https://open.spotify.com/artist/5cj0lLjcoR7YOSnhnX0Po5
+--------------------------------------------------
+#43. Selena Gomez
+     Score: 67.09/100
+     Popularity: 86/100
+     Followers: 52,735,911
+     Playlist Appearances: 6
+     Genres: 
+     Sample Tracks: Call Me When You Break Up (with Gracie Abrams), Sunset Blvd, Stained
+     Spotify: https://open.spotify.com/artist/0C8ZW7ezQVs4URX5aX7Kqx
+--------------------------------------------------
+#44. Alex Warren
+     Score: 67.08/100
+     Popularity: 88/100
+     Followers: 1,814,903
+     Playlist Appearances: 19
+     Genres: 
+     Sample Tracks: Ordinary, Ordinary, On My Mind
+     Spotify: https://open.spotify.com/artist/0fTSzq9jAh4c36UVb4V7CB
+--------------------------------------------------
+#45. Juice WRLD
+     Score: 66.99/100
+     Popularity: 89/100
+     Followers: 40,987,050
+     Playlist Appearances: 3
+     Genres: melodic rap, emo rap
+     Sample Tracks: Doomsday (with Juice WRLD & Cordae), Lucid Dreams, Hate Me
+     Spotify: https://open.spotify.com/artist/4MCBfE4596Uoi2O4DtmEMz
+--------------------------------------------------
+#46. Imagine Dragons
+     Score: 66.81/100
+     Popularity: 89/100
+     Followers: 57,562,303
+     Playlist Appearances: 10
+     Genres: 
+     Sample Tracks: Radioactive, Believer, Thunder
+     Spotify: https://open.spotify.com/artist/53XhwfbYqKCa1cC15pYq2q
+--------------------------------------------------
+#47. Shawn Mendes
+     Score: 66.64/100
+     Popularity: 85/100
+     Followers: 45,151,359
+     Playlist Appearances: 3
+     Genres: 
+     Sample Tracks: Señorita, Treat You Better, There's Nothing Holdin' Me Back
+     Spotify: https://open.spotify.com/artist/7n2wHs1TKAczGzO7Dd2rGr
+--------------------------------------------------
+#48. Metallica
+     Score: 66.61/100
+     Popularity: 86/100
+     Followers: 31,070,476
+     Playlist Appearances: 1
+     Genres: metal, thrash metal, rock
+     Sample Tracks: 
+     Spotify: https://open.spotify.com/artist/2ye2Wgw4gimLv2eAKyk1NB
+--------------------------------------------------
+#49. The Beatles
+     Score: 66.43/100
+     Popularity: 86/100
+     Followers: 30,133,110
+     Playlist Appearances: 1
+     Genres: classic rock, psychedelic rock
+     Sample Tracks: 
+     Spotify: https://open.spotify.com/artist/3WrFJ7ztbogyGnTHbHJFl2
+--------------------------------------------------
+#50. Gracie Abrams
+     Score: 66.24/100
+     Popularity: 87/100
+     Followers: 6,207,663
+     Playlist Appearances: 19
+     Genres: 
+     Sample Tracks: That’s So True, That’s So True, I Love You, I'm Sorry
+     Spotify: https://open.spotify.com/artist/4tuJ0bMpJh08umKkEXKUI5
+--------------------------------------------------
+#51. Chappell Roan
+     Score: 66.21/100
+     Popularity: 86/100
+     Followers: 6,489,452
+     Playlist Appearances: 24
+     Genres: 
+     Sample Tracks: HOT TO GO!, HOT TO GO!, HOT TO GO!
+     Spotify: https://open.spotify.com/artist/7GlBOeep6PqTfFi59PTUUN
+--------------------------------------------------
+#52. Twenty One Pilots
+     Score: 65.99/100
+     Popularity: 86/100
+     Followers: 25,488,470
+     Playlist Appearances: 3
+     Genres: 
+     Sample Tracks: The Contract, Stressed Out
+     Spotify: https://open.spotify.com/artist/3YQKmKGau1PzlVlkL1iodx
+--------------------------------------------------
+#53. ROSÉ
+     Score: 65.95/100
+     Popularity: 84/100
+     Followers: 11,964,651
+     Playlist Appearances: 16
+     Genres: k-pop
+     Sample Tracks: APT., On My Mind, APT.
+     Spotify: https://open.spotify.com/artist/3eVa5w3URK5duf6eyVDbu9
+--------------------------------------------------
+#54. Frank Ocean
+     Score: 65.65/100
+     Popularity: 88/100
+     Followers: 19,257,226
+     Playlist Appearances: 1
+     Genres: 
+     Sample Tracks: 
+     Spotify: https://open.spotify.com/artist/2h93pZq0e7k5yf4dywlkpM
+--------------------------------------------------
+#55. Sia
+     Score: 65.56/100
+     Popularity: 86/100
+     Followers: 30,033,573
+     Playlist Appearances: 2
+     Genres: 
+     Sample Tracks: Beautiful People, Genius (feat. Sia, Diplo, and Labrinth)
+     Spotify: https://open.spotify.com/artist/5WUlDfRSoLAfcVSX1WnrxN
+--------------------------------------------------
+#56. Calvin Harris
+     Score: 65.52/100
+     Popularity: 89/100
+     Followers: 23,121,250
+     Playlist Appearances: 5
+     Genres: edm
+     Sample Tracks: SMOKE THE PAIN AWAY, Blessings, One Kiss (with Dua Lipa)
+     Spotify: https://open.spotify.com/artist/7CajNmpbOovFoOoasH2HaY
+--------------------------------------------------
+#57. Charli xcx
+     Score: 65.5/100
+     Popularity: 88/100
+     Followers: 5,795,929
+     Playlist Appearances: 11
+     Genres: hyperpop, art pop
+     Sample Tracks: party 4 u, party 4 u, party 4 u
+     Spotify: https://open.spotify.com/artist/25uiPmTg16RbhZWAqwLBy5
+--------------------------------------------------
+#58. J. Cole
+     Score: 65.48/100
+     Popularity: 86/100
+     Followers: 26,522,807
+     Playlist Appearances: 5
+     Genres: rap
+     Sample Tracks: No Role Modelz, First Person Shooter (feat. J. Cole), All My Life (feat. J. Cole)
+     Spotify: https://open.spotify.com/artist/6l3HvQ5sa6mXTsMTB19rO5
+--------------------------------------------------
+#59. Playboi Carti
+     Score: 65.41/100
+     Popularity: 91/100
+     Followers: 14,433,013
+     Playlist Appearances: 25
+     Genres: rage rap
+     Sample Tracks: Popular (with Playboi Carti & Madonna) - From The Idol Vol. 1 (Music from the HBO Original Series), Popular (with Playboi Carti & Madonna), Timeless (feat. Playboi Carti)
+     Spotify: https://open.spotify.com/artist/699OTQXzgjhIYAHMy9RyPD
+--------------------------------------------------
+#60. Zach Bryan
+     Score: 65.37/100
+     Popularity: 89/100
+     Followers: 6,833,548
+     Playlist Appearances: 10
+     Genres: country, red dirt
+     Sample Tracks: I Remember Everything (feat. Kacey Musgraves), I Remember Everything (feat. Kacey Musgraves), Something in the Orange
+     Spotify: https://open.spotify.com/artist/40ZNYROS4zLfyyBSs2PGe2
+--------------------------------------------------
+#61. Future
+     Score: 65.33/100
+     Popularity: 92/100
+     Followers: 21,787,353
+     Playlist Appearances: 16
+     Genres: rap
+     Sample Tracks: Like That, Type Shit, Love Me
+     Spotify: https://open.spotify.com/artist/1RyvyyTE3xzB2ZywiAwp0i
+--------------------------------------------------
+#62. AC/DC
+     Score: 65.3/100
+     Popularity: 84/100
+     Followers: 31,482,843
+     Playlist Appearances: 1
+     Genres: rock, hard rock, classic rock
+     Sample Tracks: 
+     Spotify: https://open.spotify.com/artist/711MCceyCBcFnzjGY4Q7Un
+--------------------------------------------------
+#63. Teddy Swims
+     Score: 65.28/100
+     Popularity: 88/100
+     Followers: 5,009,467
+     Playlist Appearances: 20
+     Genres: 
+     Sample Tracks: Hammer to the Heart, Hammer to the Heart, Lose Control
+     Spotify: https://open.spotify.com/artist/33qOK5uJ8AR2xuQQAhHump
+--------------------------------------------------
+#64. Kali Uchis
+     Score: 65.28/100
+     Popularity: 88/100
+     Followers: 9,037,858
+     Playlist Appearances: 11
+     Genres: 
+     Sample Tracks: See You Again (feat. Kali Uchis), See You Again (feat. Kali Uchis), See You Again (feat. Kali Uchis)
+     Spotify: https://open.spotify.com/artist/1U1el3k54VvEUzo3ybLPlM
+--------------------------------------------------
+#65. Radiohead
+     Score: 65.27/100
+     Popularity: 88/100
+     Followers: 12,594,243
+     Playlist Appearances: 2
+     Genres: art rock, alternative rock
+     Sample Tracks: Creep
+     Spotify: https://open.spotify.com/artist/4Z8W4fKeB5YxbusRsdQVPb
+--------------------------------------------------
+#66. Guns N' Roses
+     Score: 65.13/100
+     Popularity: 83/100
+     Followers: 34,149,106
+     Playlist Appearances: 1
+     Genres: rock, glam metal, hard rock
+     Sample Tracks: 
+     Spotify: https://open.spotify.com/artist/3qm84nBOXUEQ2vnTfUTTFC
+--------------------------------------------------
+#67. Tito Double P
+     Score: 65.08/100
+     Popularity: 90/100
+     Followers: 8,378,708
+     Playlist Appearances: 2
+     Genres: corrido, corridos tumbados, corridos bélicos
+     Sample Tracks: TATTOO
+     Spotify: https://open.spotify.com/artist/5eumcnUkdmGvkvcsx1WFNG
+--------------------------------------------------
+#68. Stray Kids
+     Score: 64.99/100
+     Popularity: 87/100
+     Followers: 19,425,473
+     Playlist Appearances: 1
+     Genres: k-pop, noise music
+     Sample Tracks: 
+     Spotify: https://open.spotify.com/artist/2dIgFjalVxs4ThymZ67YCE
+--------------------------------------------------
+#69. Red Hot Chili Peppers
+     Score: 64.94/100
+     Popularity: 86/100
+     Followers: 22,684,221
+     Playlist Appearances: 1
+     Genres: funk rock, alternative rock, rock
+     Sample Tracks: 
+     Spotify: https://open.spotify.com/artist/0L8ExT028jH3ddEcZwqJJ5
+--------------------------------------------------
+#70. Pitbull
+     Score: 64.84/100
+     Popularity: 89/100
+     Followers: 11,677,009
+     Playlist Appearances: 1
+     Genres: 
+     Sample Tracks: 
+     Spotify: https://open.spotify.com/artist/0TnOYISbd1XYRBk9myaseg
+--------------------------------------------------
+#71. Nirvana
+     Score: 64.81/100
+     Popularity: 85/100
+     Followers: 22,494,863
+     Playlist Appearances: 3
+     Genres: grunge, rock
+     Sample Tracks: Smells Like Teen Spirit
+     Spotify: https://open.spotify.com/artist/6olE6TJLqED3rqDCT0FyPh
+--------------------------------------------------
+#72. The Chainsmokers
+     Score: 64.78/100
+     Popularity: 84/100
+     Followers: 21,116,414
+     Playlist Appearances: 4
+     Genres: 
+     Sample Tracks: Closer, Something Just Like This, Addicted
+     Spotify: https://open.spotify.com/artist/69GGBxA162lTqCwzJG5jLp
+--------------------------------------------------
+#73. The Neighbourhood
+     Score: 64.59/100
+     Popularity: 85/100
+     Followers: 20,704,586
+     Playlist Appearances: 4
+     Genres: 
+     Sample Tracks: Sweater Weather, Sweater Weather, Sweater Weather
+     Spotify: https://open.spotify.com/artist/77SW9BnxLY8rJ0RciFqkHh
+--------------------------------------------------
+#74. Katy Perry
+     Score: 64.55/100
+     Popularity: 88/100
+     Followers: 37,482,563
+     Playlist Appearances: 2
+     Genres: pop
+     Sample Tracks: GORGEOUS (feat. Kim Petras)
+     Spotify: https://open.spotify.com/artist/6jJ0s89eD6GaHleKKya26X
+--------------------------------------------------
+#75. BLACKPINK
+     Score: 64.45/100
+     Popularity: 81/100
+     Followers: 54,235,435
+     Playlist Appearances: 1
+     Genres: k-pop
+     Sample Tracks: Shut Down
+     Spotify: https://open.spotify.com/artist/41MozSoPIsD1dJM0CLPjZF
+--------------------------------------------------
+#76. Fleetwood Mac
+     Score: 64.43/100
+     Popularity: 85/100
+     Followers: 13,346,877
+     Playlist Appearances: 5
+     Genres: classic rock, yacht rock, soft rock
+     Sample Tracks: Dreams - 2004 Remaster, Dreams - 2004 Remaster, Dreams - 2004 Remaster
+     Spotify: https://open.spotify.com/artist/08GQAI4eElDnROBrJRGE0X
+--------------------------------------------------
+#77. Khalid
+     Score: 64.4/100
+     Popularity: 85/100
+     Followers: 16,758,726
+     Playlist Appearances: 4
+     Genres: 
+     Sample Tracks: lovely (with Khalid), lovely (with Khalid)
+     Spotify: https://open.spotify.com/artist/6LuN9FCkKOj5PcnpouEgny
+--------------------------------------------------
+#78. Metro Boomin
+     Score: 64.32/100
+     Popularity: 88/100
+     Followers: 11,162,148
+     Playlist Appearances: 11
+     Genres: 
+     Sample Tracks: Like That, Type Shit, Glock In My Lap
+     Spotify: https://open.spotify.com/artist/0iEtIxbK0KxaSlF7G42ZOp
+--------------------------------------------------
+#79. The Marías
+     Score: 64.23/100
+     Popularity: 86/100
+     Followers: 2,993,537
+     Playlist Appearances: 8
+     Genres: bedroom pop
+     Sample Tracks: No One Noticed, No One Noticed, No One Noticed
+     Spotify: https://open.spotify.com/artist/2sSGPbdZJkaSE2AbcGOACx
+--------------------------------------------------
+#80. James Arthur
+     Score: 64.17/100
+     Popularity: 83/100
+     Followers: 20,367,811
+     Playlist Appearances: 1
+     Genres: soft pop
+     Sample Tracks: Say You Won't Let Go
+     Spotify: https://open.spotify.com/artist/4IWBUUAFIplrNtaOHcJPRM
+--------------------------------------------------
+#81. Luke Combs
+     Score: 64.11/100
+     Popularity: 87/100
+     Followers: 12,932,986
+     Playlist Appearances: 10
+     Genres: country
+     Sample Tracks: Fast Car, Dive - Recorded At Sound Stage Nashville, Backup Plan (feat. Luke Combs)
+     Spotify: https://open.spotify.com/artist/718COspgdWOnwOFpJHRZHS
+--------------------------------------------------
+#82. Grupo Frontera
+     Score: 64.07/100
+     Popularity: 87/100
+     Followers: 6,869,787
+     Playlist Appearances: 3
+     Genres: cumbia norteña, banda, norteño
+     Sample Tracks: ME JALO, ME JALO, ME JALO
+     Spotify: https://open.spotify.com/artist/6XkjpgcEsYab502Vr1bBeW
+--------------------------------------------------
+#83. A$AP Rocky
+     Score: 64.06/100
+     Popularity: 86/100
+     Followers: 16,807,239
+     Playlist Appearances: 1
+     Genres: rap
+     Sample Tracks: Sundress
+     Spotify: https://open.spotify.com/artist/13ubrt8QOOCPljQ2FL1Kca
+--------------------------------------------------
+#84. Cigarettes After Sex
+     Score: 63.85/100
+     Popularity: 86/100
+     Followers: 16,244,322
+     Playlist Appearances: 2
+     Genres: dream pop
+     Sample Tracks: 
+     Spotify: https://open.spotify.com/artist/1QAJqy2dA3ihHBFIHRphZj
+--------------------------------------------------
+#85. Lil Wayne
+     Score: 63.61/100
+     Popularity: 90/100
+     Followers: 17,294,021
+     Playlist Appearances: 12
+     Genres: rap, hip hop
+     Sample Tracks: Hip-Hop (feat. BigXthaPlug, Jay Jones), Love Me, Presha (with Lil Wayne)
+     Spotify: https://open.spotify.com/artist/55Aa2cqylxrFIXC767Z865
+--------------------------------------------------
+#86. Nicki Minaj
+     Score: 63.58/100
+     Popularity: 88/100
+     Followers: 34,009,311
+     Playlist Appearances: 5
+     Genres: 
+     Sample Tracks: FTCU, Everybody (feat. Lil Uzi Vert), Barbie World (with Aqua) [From Barbie The Album]
+     Spotify: https://open.spotify.com/artist/0hCNtLu0JehylgoiP8L4Gh
+--------------------------------------------------
+#87. Lil Tecca
+     Score: 63.47/100
+     Popularity: 87/100
+     Followers: 9,722,289
+     Playlist Appearances: 15
+     Genres: melodic rap, rap
+     Sample Tracks: Dark Thoughts, OWA OWA, Dark Thoughts
+     Spotify: https://open.spotify.com/artist/4Ga1P7PMIsmqEZqhYZQgDo
+--------------------------------------------------
+#88. j-hope
+     Score: 63.13/100
+     Popularity: 83/100
+     Followers: 18,654,792
+     Playlist Appearances: 2
+     Genres: k-pop, k-rap
+     Sample Tracks: Killin' It Girl (feat. GloRilla)
+     Spotify: https://open.spotify.com/artist/0b1sIQumIAsNbqAoIClSpy
+--------------------------------------------------
+#89. Harry Styles
+     Score: 63.07/100
+     Popularity: 85/100
+     Followers: 33,779,713
+     Playlist Appearances: 7
+     Genres: 
+     Sample Tracks: As It Was, Watermelon Sugar, As It Was
+     Spotify: https://open.spotify.com/artist/6KImCVD70vtIoJWnq6nGn3
+--------------------------------------------------
+#90. Neton Vega
+     Score: 63.06/100
+     Popularity: 90/100
+     Followers: 2,853,244
+     Playlist Appearances: 3
+     Genres: corrido, corridos tumbados, corridos bélicos
+     Sample Tracks: Loco, Loco
+     Spotify: https://open.spotify.com/artist/6pV5zH2LzjOUHaAvENdMMa
+--------------------------------------------------
+#91. PARTYNEXTDOOR
+     Score: 63.04/100
+     Popularity: 87/100
+     Followers: 9,316,362
+     Playlist Appearances: 5
+     Genres: dark r&b, r&b, trap soul
+     Sample Tracks: SOMEBODY LOVES ME, SOMEBODY LOVES ME, DIE TRYING
+     Spotify: https://open.spotify.com/artist/2HPaUgqeutzr3jx5a9WyDV
+--------------------------------------------------
+#92. Alan Walker
+     Score: 62.97/100
+     Popularity: 82/100
+     Followers: 40,861,289
+     Playlist Appearances: 2
+     Genres: 
+     Sample Tracks: Guaro con Ron
+     Spotify: https://open.spotify.com/artist/7vk5e3vY1uw9plTHJAMwjN
+--------------------------------------------------
+#93. JENNIE
+     Score: 62.96/100
+     Popularity: 86/100
+     Followers: 10,825,455
+     Playlist Appearances: 7
+     Genres: k-pop
+     Sample Tracks: ExtraL (feat. Doechii), Handlebars (feat. Dua Lipa), One Of The Girls (with JENNIE, Lily Rose Depp)
+     Spotify: https://open.spotify.com/artist/250b0Wlc5Vk0CoUsaCY84M
+--------------------------------------------------
+#94. Jimin
+     Score: 62.87/100
+     Popularity: 83/100
+     Followers: 10,326,177
+     Playlist Appearances: 3
+     Genres: k-pop
+     Sample Tracks: Who, Who, Who
+     Spotify: https://open.spotify.com/artist/1oSPZhvZMIrWW5I41kPkkY
+--------------------------------------------------
+#95. NIKI
+     Score: 62.73/100
+     Popularity: 83/100
+     Followers: 7,131,729
+     Playlist Appearances: 1
+     Genres: 
+     Sample Tracks: You'll Be in My Heart
+     Spotify: https://open.spotify.com/artist/2kxP07DLgs4xlWz8YHlvfh
+--------------------------------------------------
+#96. 21 Savage
+     Score: 62.63/100
+     Popularity: 88/100
+     Followers: 22,925,146
+     Playlist Appearances: 14
+     Genres: 
+     Sample Tracks: Glock In My Lap, Surround Sound (feat. 21 Savage & Baby Tate), redrum
+     Spotify: https://open.spotify.com/artist/1URnnhqYAYcrqrcwql10ft
+--------------------------------------------------
+#97. Lil Baby
+     Score: 62.54/100
+     Popularity: 89/100
+     Followers: 20,837,649
+     Playlist Appearances: 9
+     Genres: 
+     Sample Tracks: BAND4BAND (feat. Lil Baby), Freestyle, In A Minute
+     Spotify: https://open.spotify.com/artist/5f7VJjfbwm532GiveGC0ZK
+--------------------------------------------------
+#98. Lorde
+     Score: 62.48/100
+     Popularity: 86/100
+     Followers: 10,401,854
+     Playlist Appearances: 4
+     Genres: 
+     Sample Tracks: Shapeshifter, What Was That, What Was That
+     Spotify: https://open.spotify.com/artist/163tK9Wjr9P9DmM0AVK7lm
+--------------------------------------------------
+#99. Green Day
+     Score: 62.36/100
+     Popularity: 84/100
+     Followers: 16,801,916
+     Playlist Appearances: 1
+     Genres: punk, pop punk
+     Sample Tracks: 
+     Spotify: https://open.spotify.com/artist/7oPftvlwr6VrsViSDV7fJY
+--------------------------------------------------
+#100. Daniel Caesar
+     Score: 62.36/100
+     Popularity: 86/100
+     Followers: 9,779,107
+     Playlist Appearances: 1
+     Genres: 
+     Sample Tracks: 
+     Spotify: https://open.spotify.com/artist/20wkVLutqVOYrc0kxFs7rA
+--------------------------------------------------

@@ -2,15 +2,22 @@ import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
 import os
 from dotenv import load_dotenv
+from pathlib import Path
 
-# Load environment variables
-load_dotenv()
+# Load environment variables from the main .env file (single source of truth)
+# Get the project root directory (3 levels up from this script)
+project_root = Path(__file__).parent.parent.parent.parent
+env_path = project_root / '.env'
+load_dotenv(env_path)
 
 def test_spotify_api():
     """
     Test Spotify API connectivity and basic functionality
     """
     print("🎵 Testing Spotify API Connectivity")
+    print("=" * 50)
+    print(f"🔧 Loading configuration from: {env_path}")
+    print(f"✅ Environment file exists: {env_path.exists()}")
     print("=" * 50)
     
     # Get credentials from environment
@@ -19,7 +26,8 @@ def test_spotify_api():
     
     if not client_id or not client_secret:
         print("❌ Spotify credentials not found in environment variables")
-        print("   Make sure SPOTIFY_CLIENT_ID and SPOTIFY_CLIENT_SECRET are set in .env")
+        print(f"   Make sure SPOTIFY_CLIENT_ID and SPOTIFY_CLIENT_SECRET are set in {env_path}")
+        print("   Check the main .env file in the project root directory")
         return False
     
     print(f"✅ Found Spotify Client ID: {client_id[:8]}...")

@@ -1,0 +1,62 @@
+{
+  "test_date": "2025-07-01T10:41:42.021840",
+  "methodology": "Enhanced Monthly Activity Collection",
+  "improvements": [
+    "Removed 50-post truncation limit",
+    "Added pagination to capture complete monthly data",
+    "Multiple API calls per subreddit to get full picture",
+    "Stops when reaching posts older than 30 days"
+  ],
+  "test_results": [
+    {
+      "artist": "Taylor Swift",
+      "subreddit": "TaylorSwift",
+      "subscribers": 3724577,
+      "posts_last_month": 500,
+      "comments_last_month": 37405,
+      "total_activity": 37905,
+      "engagement_score": 10.18,
+      "data_collection": "Enhanced (complete monthly data)"
+    },
+    {
+      "artist": "Kendrick Lamar",
+      "subreddit": "KendrickLamar",
+      "subscribers": 1445008,
+      "posts_last_month": 500,
+      "comments_last_month": 17042,
+      "total_activity": 17542,
+      "engagement_score": 12.14,
+      "data_collection": "Enhanced (complete monthly data)"
+    },
+    {
+      "artist": "Drake",
+      "subreddit": "Drizzy",
+      "subscribers": 310109,
+      "posts_last_month": 500,
+      "comments_last_month": 15596,
+      "total_activity": 16096,
+      "engagement_score": 51.9,
+      "data_collection": "Enhanced (complete monthly data)"
+    },
+    {
+      "artist": "Eminem",
+      "subreddit": "Eminem",
+      "subscribers": 1322632,
+      "posts_last_month": 500,
+      "comments_last_month": 12778,
+      "total_activity": 13278,
+      "engagement_score": 10.04,
+      "data_collection": "Enhanced (complete monthly data)"
+    },
+    {
+      "artist": "Billie Eilish",
+      "subreddit": "billieeilish",
+      "subscribers": 1205936,
+      "posts_last_month": 494,
+      "comments_last_month": 11472,
+      "total_activity": 11966,
+      "engagement_score": 9.92,
+      "data_collection": "Enhanced (complete monthly data)"
+    }
+  ]
+}

@@ -1,0 +1,339 @@
+{
+  "total_songs": 16,
+  "section_types": {
+    "from the vault": 1,
+    "verse": 43,
+    "pre-chorus": 13,
+    "chorus": 22,
+    "bridge": 6,
+    "outro": 6,
+    "pre-chorus: billie eilish & khalid": 2,
+    "chorus: billie eilish with khalid": 2,
+    "outro: khalid, billie eilish, khalid & billie eilish": 1,
+    "post-chorus": 2,
+    "intro: fuzzy jones": 1,
+    "chorus: yb, big sean & fuzzy jones": 4,
+    "post-chorus: fuzzy jones & big sean": 3,
+    "bridge: fuzzy jones": 1,
+    "intro": 3,
+    "intro: jung kook": 1,
+    "pre-chorus: rm, j-hope": 1,
+    "chorus: jung kook, jimin": 1,
+    "pre-chorus: suga, jimin, rm": 1,
+    "chorus: jung kook, v": 1,
+    "post-chorus: jung kook & jimin, jung kook, jin": 1,
+    "bridge: jung kook, jimin, jin,  v": 1,
+    "chorus: jimin, jung kook, jin": 1,
+    "post-chorus: jimin, jin, v": 1,
+    "chorus: rosé, selena gomez & jennie": 2,
+    "post-chorus: jennie": 1,
+    "post-chorus: jisoo, jisoo & selena gomez": 1,
+    "outro: all, jennie": 1,
+    "pre-chorus: beyoncé": 2,
+    "chorus: beyoncé": 2,
+    "chorus: beyoncé & jay-z": 1,
+    "chorus: beyoncé, beyoncé & jay-z": 1,
+    "bridge: beyoncé": 1,
+    "letra de \"amorfoda\"": 1,
+    "estribillo": 2,
+    "verso": 1,
+    "chorus: doja cat": 2,
+    "post-chorus: doja cat": 2,
+    "chorus: doja cat, sza, both": 1,
+    "post-chorus: sza, doja cat": 1,
+    "part i": 1,
+    "intro: drake": 1,
+    "verse: drake": 1,
+    "part ii": 1,
+    "refrain: big hawk & swae lee": 1,
+    "refrain: travis scott, swae lee & big hawk": 1,
+    "part iii": 1,
+    "intro: travis scott, drake & lil juice": 1,
+    "chorus: drake & travis scott": 2,
+    "refrain": 2
+  },
+  "patterns": [
+    {
+      "artist": "Taylor Swift",
+      "title": "All Too Well (10 Minute Version) (Taylor’s Version) [From The Vault]",
+      "sections": [
+        "From The Vault",
+        "Verse 1",
+        "Verse 2",
+        "Pre-Chorus",
+        "Chorus",
+        "Verse 3",
+        "Pre-Chorus",
+        "Chorus",
+        "Bridge",
+        "Verse 4",
+        "Verse 5",
+        "Chorus",
+        "Verse 6",
+        "Outro"
+      ],
+      "section_count": 14,
+      "has_structure": true
+    },
+    {
+      "artist": "Billie Eilish",
+      "title": "lovely",
+      "sections": [
+        "Verse 1: Billie Eilish & Khalid",
+        "Pre-Chorus: Billie Eilish & Khalid",
+        "Chorus: Billie Eilish with Khalid",
+        "Verse 2: Khalid with Billie Eilish",
+        "Pre-Chorus: Billie Eilish & Khalid",
+        "Chorus: Billie Eilish with Khalid",
+        "Outro: Khalid, Billie Eilish, Khalid & Billie Eilish"
+      ],
+      "section_count": 7,
+      "has_structure": true
+    },
+    {
+      "artist": "Ariana Grande",
+      "title": "thank u, next",
+      "sections": [
+        "Verse 1",
+        "Pre-Chorus",
+        "Chorus",
+        "Verse 2",
+        "Pre-Chorus",
+        "Chorus",
+        "Post-Chorus",
+        "Bridge",
+        "Pre-Chorus",
+        "Chorus",
+        "Post-Chorus"
+      ],
+      "section_count": 11,
+      "has_structure": true
+    },
+    {
+      "artist": "Kanye West",
+      "title": "Mercy",
+      "sections": [
+        "Intro: Fuzzy Jones",
+        "Chorus: YB, Big Sean & Fuzzy Jones",
+        "Verse 1: Big Sean & Kanye West",
+        "Chorus: YB, Big Sean & Fuzzy Jones",
+        "Post-Chorus: Fuzzy Jones & Big Sean",
+        "Verse 2: Pusha T",
+        "Chorus: YB, Big Sean & Fuzzy Jones",
+        "Post-Chorus: Fuzzy Jones & Big Sean",
+        "Bridge: Fuzzy Jones",
+        "Verse 3: Kanye West & 2 Chainz",
+        "Verse 4: 2 Chainz & Big Sean",
+        "Chorus: YB, Big Sean & Fuzzy Jones",
+        "Post-Chorus: Fuzzy Jones & Big Sean"
+      ],
+      "section_count": 13,
+      "has_structure": true
+    },
+    {
+      "artist": "Eminem",
+      "title": "Rap God",
+      "sections": [
+        "Intro",
+        "Chorus",
+        "Verse 1",
+        "Chorus",
+        "Verse 2",
+        "Chorus",
+        "Verse 3"
+      ],
+      "section_count": 7,
+      "has_structure": true
+    },
+    {
+      "artist": "BTS",
+      "title": "Dynamite",
+      "sections": [
+        "Intro: Jung Kook",
+        "Verse 1: Jung Kook",
+        "Pre-Chorus: RM, j-hope",
+        "Chorus: Jung Kook, Jimin",
+        "Verse 2: V,  V & Jin, RM",
+        "Pre-Chorus: SUGA, Jimin, RM",
+        "Chorus: Jung Kook, V",
+        "Post-Chorus: Jung Kook & Jimin, Jung Kook, Jin",
+        "Bridge: Jung Kook, Jimin, Jin,  V ",
+        "Chorus: Jimin, Jung Kook, Jin",
+        "Post-Chorus: Jimin, Jin, V"
+      ],
+      "section_count": 11,
+      "has_structure": true
+    },
+    {
+      "artist": "BLACKPINK",
+      "title": "Ice Cream",
+      "sections": [
+        "Verse 1: Selena Gomez, Lisa & Jennie",
+        "Chorus: Rosé, Selena Gomez & Jennie",
+        "Post-Chorus: Jennie",
+        "Verse 2: Selena Gomez, Rosé, Jisoo & Jennie",
+        "Chorus: Rosé, Selena Gomez & Jennie",
+        "Post-Chorus: Jisoo, Jisoo & Selena Gomez",
+        "Verse 3: Lisa",
+        "Outro: All, Jennie"
+      ],
+      "section_count": 8,
+      "has_structure": true
+    },
+    {
+      "artist": "Arctic Monkeys",
+      "title": "Do I Wanna Know?",
+      "sections": [
+        "Verse 1",
+        "Pre-Chorus",
+        "Chorus",
+        "Verse 2",
+        "Pre-Chorus",
+        "Chorus",
+        "Outro"
+      ],
+      "section_count": 7,
+      "has_structure": true
+    },
+    {
+      "artist": "Beyoncé",
+      "title": "Drunk in Love",
+      "sections": [
+        "Verse 1: Beyoncé",
+        "Pre-Chorus: Beyoncé",
+        "Chorus: Beyoncé",
+        "Verse 2: Beyoncé",
+        "Pre-Chorus: Beyoncé",
+        "Chorus: Beyoncé & JAY-Z",
+        "Verse 3: JAY-Z",
+        "Chorus: Beyoncé, Beyoncé & JAY-Z",
+        "Bridge: Beyoncé",
+        "Chorus: Beyoncé"
+      ],
+      "section_count": 10,
+      "has_structure": true
+    },
+    {
+      "artist": "The Weeknd",
+      "title": "The Hills",
+      "sections": [
+        "Intro",
+        "Verse 1",
+        "Chorus",
+        "Verse 2",
+        "Chorus",
+        "Bridge",
+        "Chorus",
+        "Outro"
+      ],
+      "section_count": 8,
+      "has_structure": true
+    },
+    {
+      "artist": "Bad Bunny",
+      "title": "Amorfoda",
+      "sections": [
+        "Letra de \"Amorfoda\"",
+        "Estribillo",
+        "Verso",
+        "Estribillo"
+      ],
+      "section_count": 4,
+      "has_structure": true
+    },
+    {
+      "artist": "Doja Cat",
+      "title": "Kiss Me More",
+      "sections": [
+        "Verse 1: Doja Cat",
+        "Chorus: Doja Cat",
+        "Post-Chorus: Doja Cat",
+        "Verse 2: Doja Cat",
+        "Chorus: Doja Cat",
+        "Post-Chorus: Doja Cat",
+        "Verse 3: SZA",
+        "Chorus: Doja Cat, SZA, Both",
+        "Post-Chorus: SZA, Doja Cat"
+      ],
+      "section_count": 9,
+      "has_structure": true
+    },
+    {
+      "artist": "Harry Styles",
+      "title": "Sign of the Times",
+      "sections": [
+        "Verse 1",
+        "Pre-Chorus",
+        "Chorus",
+        "Verse 2",
+        "Pre-Chorus",
+        "Chorus",
+        "Pre-Chorus",
+        "Bridge",
+        "Outro"
+      ],
+      "section_count": 9,
+      "has_structure": true
+    },
+    {
+      "artist": "Travis Scott",
+      "title": "SICKO MODE",
+      "sections": [
+        "Part I",
+        "Intro: Drake",
+        "Verse: Drake",
+        "Part II",
+        "Verse 1: Travis Scott & The Notorious B.I.G.",
+        "Refrain: Big Hawk & Swae Lee",
+        "Verse 2: Travis Scott & Uncle Luke",
+        "Refrain: Travis Scott, Swae Lee & Big Hawk",
+        "Part III",
+        "Intro: Travis Scott, Drake & Lil Juice",
+        "Chorus: Drake & Travis Scott",
+        "Verse 1: Drake & Travis Scott",
+        "Chorus: Drake & Travis Scott",
+        "Verse 2: Travis Scott"
+      ],
+      "section_count": 14,
+      "has_structure": true
+    },
+    {
+      "artist": "Olivia Rodrigo",
+      "title": "drivers license",
+      "sections": [
+        "Verse 1",
+        "Verse 2",
+        "Chorus",
+        "Verse 3",
+        "Chorus",
+        "Bridge",
+        "Chorus",
+        "Outro"
+      ],
+      "section_count": 8,
+      "has_structure": true
+    },
+    {
+      "artist": "Dua Lipa",
+      "title": "New Rules",
+      "sections": [
+        "Intro",
+        "Verse 1",
+        "Refrain",
+        "Pre-Chorus",
+        "Chorus",
+        "Verse 2",
+        "Refrain",
+        "Pre-Chorus",
+        "Chorus",
+        "Bridge",
+        "Pre-Chorus",
+        "Chorus",
+        "Outro"
+      ],
+      "section_count": 13,
+      "has_structure": true
+    }
+  ],
+  "analysis_date": "2025-07-01 08:17:06"
+}

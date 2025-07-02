@@ -1,0 +1,6 @@
+# Reddit Artist Subreddit Finder Dependencies
+# Install with: pip install -r requirements.txt
+
+praw==7.7.1
+python-dotenv==1.0.0
+requests==2.31.0 

@@ -1,0 +1,6 @@
+artist,primary_subreddit,subreddit_url,subscribers,posts_last_month,comments_last_month,total_activity,popularity_score,tier,relevance_score,relevance_reasons
+Taylor Swift,TaylorSwift,https://reddit.com/r/TaylorSwift,3724547,50,2764,2814,0.76,📊 Present,12,Exact match | Artist mentioned
+Billie Eilish,billieeilish,https://reddit.com/r/billieeilish,1205937,50,628,678,0.56,📊 Present,12,Exact match | Artist mentioned
+Dua Lipa,dualipa,https://reddit.com/r/dualipa,653371,50,578,628,0.96,📊 Present,12,Exact match | Artist mentioned
+Kendrick Lamar,KendrickLamar,https://reddit.com/r/KendrickLamar,1445009,50,1280,1330,0.92,📊 Present,10,Exact match
+Drake,DrakeTheType,https://reddit.com/r/DrakeTheType,103174,50,552,602,5.83,🔥 Viral,10,Name in title | Artist mentioned
