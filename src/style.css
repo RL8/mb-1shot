@@ -828,4 +828,61 @@ html {
   .integration-note {
     padding: 0.75rem;
   }
+}
+
+/* Admin Container Styling */
+.admin-container {
+  position: fixed;
+  top: var(--safe-area-top);
+  left: 0;
+  right: 0;
+  bottom: var(--safe-area-bottom);
+  background: #1a1a1a;
+  overflow: auto;
+  z-index: 1000;
+  padding: 0;
+  margin: 0;
+}
+
+/* Override mobile card styling for admin interface */
+.admin-container .reddit-admin {
+  padding: 0;
+  margin: 0;
+  min-height: 100vh;
+  background: #1a1a1a;
+}
+
+/* Responsive adjustments for admin interface */
+@media (max-width: 768px) {
+  .admin-container .data-table {
+    font-size: 10px;
+  }
+  
+  .admin-container .controls-section {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .admin-container .search-input {
+    width: 100%;
+  }
+  
+  .admin-container .stats-summary {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .admin-container .stat-card {
+    min-width: 80px;
+    padding: 10px;
+  }
+  
+  .admin-container .table-container {
+    font-size: 10px;
+  }
+  
+  .admin-container .data-table th,
+  .admin-container .data-table td {
+    padding: 4px;
+  }
 } 

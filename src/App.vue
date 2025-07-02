@@ -137,11 +137,17 @@
       <MusicKnowledgeGraph />
     </div>
 
+    <!-- Reddit Analysis Admin Section (NEW) -->
+    <div v-if="currentView === 'reddit-admin'" class="admin-container">
+      <RedditAnalysisAdmin />
+    </div>
+
     <!-- Mobile navigation menu -->
     <nav class="mobile-nav" :class="{ active: menuOpen }">
       <ul>
         <li><a href="#" @click="navigate('artists')">🎤 Artists</a></li>
         <li><a href="#" @click="navigate('knowledge-graph')">🕸️ Knowledge Graph</a></li>
+        <li><a href="#" @click="navigate('reddit-admin')">🔧 Reddit Admin</a></li>
         <li><a href="#" @click="navigate('favorites')">❤️ Favorites</a></li>
         <li><a href="#" @click="navigate('charts')">📊 Charts</a></li>
         <li><a href="#" @click="navigate('settings')">⚙️ Settings</a></li>
@@ -161,13 +167,15 @@ import apiService from './services/api.js'
 import MusicBestieChat from './components/MusicBestieChat.vue'
 import MusicChart from './components/MusicChart.vue'
 import MusicKnowledgeGraph from './components/MusicKnowledgeGraph.vue'
+import RedditAnalysisAdmin from './components/RedditAnalysisAdmin.vue'
 
 export default {
   name: 'MusicBesties',
   components: {
     MusicBestieChat,
     MusicChart,
-    MusicKnowledgeGraph
+    MusicKnowledgeGraph,
+    RedditAnalysisAdmin
   },
   setup() {
     const menuOpen = ref(false)

@@ -54,15 +54,42 @@ app.get('/health', (req, res) => {
 });
 
 // Knowledge graph stats endpoint
-app.get('/api/knowledge-graph/stats', (req, res) => {
-  res.json({
-    artists: sampleArtists.length,
-    albums: sampleArtists.reduce((total, artist) => total + artist.discography.length, 0),
-    tracks: sampleArtists.reduce((total, artist) => total + artist.discography.length * 10, 0), // Estimate 10 tracks per album
-    total: sampleArtists.length + 
-           sampleArtists.reduce((total, artist) => total + artist.discography.length, 0) +
-           sampleArtists.reduce((total, artist) => total + artist.discography.length * 10, 0)
-  });
+app.get('/api/knowledge-graph/stats', async (req, res) => {
+  try {
+    const session = driver.session();
+    const result = await session.run(`
+      MATCH (a:Artist) 
+      OPTIONAL MATCH (a)-[:HAS_ALBUM]->(al:Album)
+      OPTIONAL MATCH (al)-[:HAS_TRACK]->(t:Track)
+      RETURN count(DISTINCT a) as artists, 
+             count(DISTINCT al) as albums, 
+             count(DISTINCT t) as tracks
+    `);
+    
+    const stats = result.records[0];
+    const artistCount = stats.get('artists').toNumber();
+    const albumCount = stats.get('albums').toNumber();
+    const trackCount = stats.get('tracks').toNumber();
+    
+    await session.close();
+    
+    res.json({
+      artists: artistCount,
+      albums: albumCount,
+      tracks: trackCount,
+      total: artistCount + albumCount + trackCount
+    });
+  } catch (error) {
+    console.error('Error fetching stats:', error);
+    // Fallback to zero stats if database fails
+    res.json({
+      artists: 0,
+      albums: 0,
+      tracks: 0,
+      total: 0,
+      error: 'Database connection failed'
+    });
+  }
 });
 
 // User actions endpoint
@@ -131,6 +158,38 @@ app.get('/api/settings', (req, res) => {
       version: '1.0.0',
       rateLimit: 1000,
       timeout: 30000
+    }
+  });
+});
+
+// Features endpoint for app capabilities
+app.get('/api/features', (req, res) => {
+  res.json({
+    knowledgeGraph: {
+      enabled: true,
+      description: 'Enhanced Spotify knowledge graph with era-based consolidation',
+      endpoints: ['/api/artists', '/api/knowledge-graph/stats', '/api/search']
+    },
+    aguiIntegration: {
+      enabled: process.env.AGUI_ENABLED === 'true',
+      description: 'Conversational AI music assistant',
+      websocket: process.env.AGUI_ENABLED === 'true',
+      port: process.env.AGUI_WS_PORT || 3001
+    },
+    redditAnalysis: {
+      enabled: true,
+      description: 'Music community sentiment analysis',
+      endpoints: ['/api/reddit-analysis']
+    },
+    spotifyIntegration: {
+      enabled: !!(process.env.SPOTIFY_CLIENT_ID && process.env.SPOTIFY_CLIENT_SECRET),
+      description: 'Spotify API integration for music data',
+      clientConfigured: !!(process.env.SPOTIFY_CLIENT_ID && process.env.SPOTIFY_CLIENT_SECRET)
+    },
+    database: {
+      type: 'Neo4j AuraDB',
+      connected: !!driver,
+      description: 'Graph database for music relationships'
     }
   });
 });
