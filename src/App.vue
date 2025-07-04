@@ -142,10 +142,16 @@
       <RedditAnalysisAdmin />
     </div>
 
+    <!-- Smart Music Discovery Section (NEW Phase 2) -->
+    <div v-if="currentView === 'smart-discovery'" class="content-card discovery-container">
+      <SmartMusicDiscovery />
+    </div>
+
     <!-- Mobile navigation menu -->
     <nav class="mobile-nav" :class="{ active: menuOpen }">
       <ul>
         <li><a href="#" @click="navigate('artists')">🎤 Artists</a></li>
+        <li><a href="#" @click="navigate('smart-discovery')">🎯 Smart Discovery</a></li>
         <li><a href="#" @click="navigate('knowledge-graph')">🕸️ Knowledge Graph</a></li>
         <li><a href="#" @click="navigate('reddit-admin')">🔧 Reddit Admin</a></li>
         <li><a href="#" @click="navigate('favorites')">❤️ Favorites</a></li>
@@ -168,6 +174,7 @@ import MusicBestieChat from './components/MusicBestieChat.vue'
 import MusicChart from './components/MusicChart.vue'
 import MusicKnowledgeGraph from './components/MusicKnowledgeGraph.vue'
 import RedditAnalysisAdmin from './components/RedditAnalysisAdmin.vue'
+import SmartMusicDiscovery from './components/SmartMusicDiscovery.vue'
 
 export default {
   name: 'MusicBesties',
@@ -175,7 +182,8 @@ export default {
     MusicBestieChat,
     MusicChart,
     MusicKnowledgeGraph,
-    RedditAnalysisAdmin
+    RedditAnalysisAdmin,
+    SmartMusicDiscovery
   },
   setup() {
     const menuOpen = ref(false)

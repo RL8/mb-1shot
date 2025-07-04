@@ -14,6 +14,9 @@ const driver = neo4j.driver(
 // Import AG-UI Server
 const MusicBestiesAGUIServer = require('./agui-server.js');
 
+// Import Taxonomy API
+const taxonomyAPI = require('./taxonomy-api.js');
+
 const app = express();
 const server = http.createServer(app);
 
@@ -42,6 +45,12 @@ app.use(express.urlencoded({ extended: true }));
 
 // Add AG-UI HTTP routes
 app.use('/agui', aguiServer.getHTTPRoutes());
+
+// Add Taxonomy API routes
+app.use('/api/taxonomy', taxonomyAPI);
+
+// Add songs endpoint with taxonomy support
+app.use('/api', taxonomyAPI);
 
 // Health check endpoint
 app.get('/health', (req, res) => {
