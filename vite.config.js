@@ -22,7 +22,16 @@ export default defineConfig(({ mode }) => {
       }
     },
     build: {
-      outDir: 'dist'
+      outDir: 'dist',
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            vue: ['vue'],
+            echarts: ['echarts'],
+            vendor: ['neo4j-driver', 'vue-router']
+          }
+        }
+      }
     },
     // Define global constants for environment variables
     define: {

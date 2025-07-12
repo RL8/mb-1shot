@@ -4,7 +4,7 @@
   "description": "Backend API for Music Besties mobile app",
   "main": "server.js",
   "scripts": {
-    "start": "dotenv -e ../.env.production -- node server.js",
+    "start": "dotenv -e .env -- node server.js",
     "dev": "npm run clean:ports && dotenv -e ../.env.development -- nodemon server.js",
     "start:dev": "dotenv -e ../.env.development -- node server.js",
     "clean:ports": "npx kill-port 3001 --silent",
